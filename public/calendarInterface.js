@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log("blah")
 
   $('.date').pickmeup({
   	flat : true,
