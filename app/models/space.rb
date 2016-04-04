@@ -3,9 +3,9 @@ require 'data_mapper'
 class Space
   include DataMapper::Resource
 
-  property :id, Serial
-  property :name, String
+  property :id,          Serial
+  property :name,        String
   property :description, String
-  property :price, Float
+  property :price,       Big, :scale => 2
 
 end
