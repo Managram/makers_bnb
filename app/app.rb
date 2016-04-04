@@ -2,7 +2,9 @@ require 'sinatra/base'
 
 class MakersBnb < Sinatra::Base
   # start the server if ruby file executed directly
-  get '/request/new' do 
+  set :public_folder, 'public'
+
+  get '/' do 
   	send_file 'calendar.html'  	
   end
 
