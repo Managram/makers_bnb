@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  console.log("blah")
-
   $('.date').pickmeup({
   	flat : true,
   	mode : 'range',
@@ -8,7 +6,15 @@ $(document).ready(function() {
   });
 
   $('#submit').click(function(){
-  	console.log($('.date').pickmeup('get_date') );
+    var dateRange = $('.date').pickmeup('get_date');
+    console.log(dateRange);
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:4567/reservation',
+        data: {"start_date": dateRange[0],
+               "end_date": dateRange[1]},
+        crossDomain: true
+    });
   });
 
 });
