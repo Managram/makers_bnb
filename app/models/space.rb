@@ -4,5 +4,5 @@ class Space
   include DataMapper::Resource
 
   property :id, Serial
-  property :title, String
+  property :name, String
 end

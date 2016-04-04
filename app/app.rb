@@ -12,7 +12,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/space/new' do
-    space = Space.new(title: params[:title])
+    space = Space.new(name: params[:name])
     space.save
     redirect "/space/index"
   end
