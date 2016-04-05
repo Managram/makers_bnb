@@ -19,7 +19,7 @@ class MakersBnb < Sinatra::Base
     end
 
     def get_date_range(booking)
-      (booking.start_date...booking.end_date).map { |date| date }
+      (booking.start_date...booking.end_date).map { |date| date.to_s }
     end
   end
 
@@ -40,10 +40,15 @@ class MakersBnb < Sinatra::Base
     erb(:"/space/view")
   end
 
-  get '/reservation' do
+  get '/booked-dates' do
     bookings_array = Booking.all
-    return send_bookings(bookings_array)
+    send_bookings(bookings_array).to_s
+  end
+
+  get '/reservation' do
+    
     File.read(File.join('public', 'calendar.html'))
+
   end
 
   post '/reservation' do
