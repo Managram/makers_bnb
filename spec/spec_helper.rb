@@ -8,16 +8,37 @@ require 'rspec'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'database_cleaner'
-#require 'features/web_helper' for when we have web helpers
+require 'helpers'
+require 'factory_girl'
 
 Capybara.app = MakersBnb
 
 RSpec.configure do |config|
 
+  config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
+  config.include Helpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+    FactoryGirl.lint
+  end
+
+  FactoryGirl.define do
+    factory :space do
+      name          'Humpty Dumpty'
+      description   'nice wall'
+      price         '19.99'
+    end
+  end
+
+  FactoryGirl.define do
+    factory :request do
+      start_date '24/01/2016'
+      end_date   '05/04/2016'
+      status     1
+    end
   end
 
   config.before :each do
