@@ -5,6 +5,12 @@
       <li>
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
+        <form action="/booking-requests/accepted/<%=request.id%>" method="post">
+          <input type="submit" value="Accept">
+        </form>
+        <form action="/booking-requests/declined/<%=request.id%>" method="post">
+          <input type="submit" value="Decline">
+        </form>
       </li>
       <% end %>
   </ul>

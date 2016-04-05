@@ -3,7 +3,6 @@ ENV['RACK_ENV'] ||= 'development'
 require_relative 'models/data_mapper_setup'
 require 'sinatra/base'
 require 'json'
-require_relative 'booking.rb'
 
 class MakersBnb < Sinatra::Base
 
@@ -41,14 +40,30 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/reservation' do
-    Request.create(start_date: params[:start_date], end_date: params[:end_date])
+    Request.create(start_date: params[:start_date], end_date: params[:end_date], status: 1)
     p params[:start_date]
     p params[:end_date]
   end
 
   get '/booking-requests' do
-    @requests = Request.all
+    @requests = Request.all(status: 1)
     erb(:'requests/booking-requests')
+  end
+
+  post '/booking-requests/accepted/:request_id' do
+    request = Request.first(id: params[:request_id])
+    Booking.create(start_date: request.start_date,
+                   end_date: request.end_date)
+    request.status = 2
+    request.save
+    redirect '/booking-requests'
+  end
+
+  post '/booking-requests/declined/:request_id' do
+    request = Request.first(id: params[:request_id])
+    request.status = 0
+    request.save
+    redirect '/booking-requests'
   end
 
   run! if app_file == $0
