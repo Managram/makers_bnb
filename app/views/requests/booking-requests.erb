@@ -1,0 +1,11 @@
+<h1>Booking Requests</h1>
+<section>
+  <ul>
+    <% @requests.each do |request|%>
+      <li>
+        Start Date: <%= request.start_date %>
+        End Date: <%= request.end_date %>
+      </li>
+      <% end %>
+  </ul>
+</section>
