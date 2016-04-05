@@ -2,13 +2,11 @@
 
 <ul id='spaces'>
   <% @spaces.each do |space| %>
-  <li>
-    <form action="/space/<%= space.name %>/view" method="post">
-      Space: <%= space.name %>
-    <input type="submit" value="view space">
-    </form>
-    <!-- Description: <%= space.description %>
-    Price: <%= space.price %> -->
-  </li>
+    <li>
+        <form action="/space/<%= space.id %>/view">
+          Space: <%= space.name %>
+          <input type="submit" value="view space">
+        </form>
+    </li>
   <% end %>
 </ul>
