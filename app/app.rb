@@ -14,14 +14,20 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/space/new' do
-    space = Space.create(name: params[:name],
-                         description: params[:description],
-                         price: params[:price])
+    Space.create(name: params[:name],
+                 description: params[:description],
+                 price: params[:price])
     redirect "/space/index"
   end
 
   get '/space/index' do
+    @spaces = Space.all
     erb(:"space/index")
+  end
+
+  get '/space/:id/view' do
+    @space = Space.first(id: params[:id])
+    erb(:"/space/view")
   end
 
   get '/reservation' do
