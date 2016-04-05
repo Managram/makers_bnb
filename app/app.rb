@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'development'
 
 require_relative 'models/data_mapper_setup'
 require 'sinatra/base'
+require 'tilt/erb'
 require 'json'
 
 class MakersBnb < Sinatra::Base
