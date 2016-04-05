@@ -6,15 +6,17 @@ require_relative 'models/data_mapper_setup'
 
 
 class MakersBnb < Sinatra::Base
+  enable :sessions
 
   get '/space/new' do
     erb(:"space/new")
   end
 
   post '/space/new' do
-    @space = Space.create(name: params[:name],
-                         description: params[:description],
-                         price: params[:price])
+    user = User.get(session[:user_id])
+    user.spaces.create(name: params[:name],
+                 description: params[:description],
+                 price: params[:price])
     redirect "/space/index"
   end
 
@@ -28,6 +30,21 @@ class MakersBnb < Sinatra::Base
     erb(:"/space/view")
   end
 
+  get '/user/new' do
+    erb(:"user/new")
+  end
+
+  post '/user/new' do
+    @user = User.create(name: params[:name])
+    session[:user_id] = @user.id
+    redirect '/space/new'
+  end
+
+    helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
