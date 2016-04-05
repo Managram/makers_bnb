@@ -6,6 +6,6 @@ class Space
   property :id,          Serial
   property :name,        String
   property :description, String
-  property :price,       Decimal, :scale => 2
+  property :price,       Float, scale: 2
 
 end

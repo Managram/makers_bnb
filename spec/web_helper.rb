@@ -1,4 +1,4 @@
-def register_space(name: "newspace",
+def register_space(name: "new space",
                    description: "anything",
                    price: 19.99)
     visit '/space/new'
