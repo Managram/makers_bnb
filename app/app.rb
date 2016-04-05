@@ -15,7 +15,7 @@ class MakersBnb < Sinatra::Base
 
   helpers do
     def send_bookings(bookings)
-      bookings.map { |booking| get_date_range(booking) }.flatten      
+      bookings.map { |booking| get_date_range(booking) }.flatten
     end
 
     def get_date_range(booking)
@@ -41,14 +41,13 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/booked-dates' do
-    bookings_array = Booking.all
-    send_bookings(bookings_array).to_s
+    dates = send_bookings(Booking.all)
+    JSON.generate({dates: dates})
+    # send_bookings(Booking.all).to_s
   end
 
   get '/reservation' do
-    
     File.read(File.join('public', 'calendar.html'))
-
   end
 
   post '/reservation' do
