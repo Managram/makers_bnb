@@ -16,18 +16,19 @@ $(document).ready(function() {
       dataType: 'json',
   }).then(function(data){
     $('.date').pickmeup({
-      flat:   true,
-      mode:   'range',
-      format: 'Y-m-d',
-      render: function(date) {
-        var bookedDates = formatDates(data.dates);
-        if ($.inArray(date.toString(), bookedDates) > -1){
-          return {
-            disabled   : true,
-            class_name : 'disabled'
-          }
-        }
-      }
+      flat:       true,
+      mode:       'range',
+      format:     'Y-m-d',
+      calendars:  2,
+      render:     function(date) {
+                    var bookedDates = formatDates(data.dates);
+                    if ($.inArray(date.toString(), bookedDates) > -1){
+                      return {
+                        disabled   : true,
+                        class_name : 'disabled'
+                      }
+                    }
+                  }
     });
   });
 
