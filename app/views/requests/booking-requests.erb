@@ -2,14 +2,14 @@
 <section>
   <ul>
     <% @requests.each do |request|%>
-      <li>
+      <li id="<%=request.id%>">
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
         <form action="/booking-requests/accepted/<%=request.id%>" method="post">
           <input type="submit" value="Accept">
         </form>
         <form action="/booking-requests/declined/<%=request.id%>" method="post">
-          <input type="submit" value="Decline">
+          <input type="submit" value="Decline" name="Decline">
         </form>
       </li>
       <% end %>

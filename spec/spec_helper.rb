@@ -34,12 +34,13 @@ RSpec.configure do |config|
     end
   end
 
-  FactoryGirl.define do
-    factory :request do
-      start_date '24/01/2016'
-      end_date   '05/04/2016'
-    end
-  end
+  # FactoryGirl.define do
+  #   factory :request do
+  #     start_date '24/01/2016'
+  #     end_date   '05/04/2016'
+  #     status     1
+  #   end
+  # end
 
   config.before :each do
     DatabaseCleaner.start
