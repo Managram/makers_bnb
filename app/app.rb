@@ -41,9 +41,8 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/booked-dates' do
-    dates = send_bookings(Booking.all)
-    JSON.generate({dates: dates})
-    # send_bookings(Booking.all).to_s
+    booked_dates = send_bookings(Booking.all)
+    JSON.generate({ dates: booked_dates })
   end
 
   get '/reservation' do
