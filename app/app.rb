@@ -30,8 +30,6 @@ class MakersBnb < Sinatra::Base
 
   post '/reservation' do
     Request.create(start_date: params[:start_date], end_date: params[:end_date], status: 1)
-    p params[:start_date]
-    p params[:end_date]
   end
 
   get '/booking-requests' do
