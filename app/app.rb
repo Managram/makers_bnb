@@ -24,18 +24,6 @@ class MakersBnb < Sinatra::Base
     erb(:"space/index")
   end
 
-  # get '/request/new' do
-  #   erb(:"request/new")
-  # end
-  #
-  # post '/request/new' do
-  #   Request.create(start_date: params[:start_date],
-  #                  end_date: params[:end_date])
-  #   redirect "/space/index"
-  # end
-
-  # start the server if ruby file executed directl
-
   get '/reservation' do
     File.read(File.join('public', 'calendar.html'))
   end
@@ -67,5 +55,6 @@ class MakersBnb < Sinatra::Base
     redirect '/booking-requests'
   end
 
+  # start the server if ruby file executed directly
   run! if app_file == $0
 end
