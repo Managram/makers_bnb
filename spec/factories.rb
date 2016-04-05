@@ -5,3 +5,5 @@ FactoryGirl.define do
     price         '19.99'
   end
 end
+
+#we need to make sure this works
