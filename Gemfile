@@ -14,4 +14,5 @@ group :test do
   gem "rspec"
   gem "rspec-sinatra"
   gem "capybara"
+  gem "factory_girl"
 end
