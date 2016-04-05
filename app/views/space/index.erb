@@ -1,1 +1,14 @@
-saved
+<h1> Spaces </h1>
+
+<ul id='spaces'>
+  <% @spaces.each do |space| %>
+  <li>
+    <form action="/space/<%= space.name %>/view" method="post">
+      Space: <%= space.name %>
+    <input type="submit" value="view space">
+    </form>
+    <!-- Description: <%= space.description %>
+    Price: <%= space.price %> -->
+  </li>
+  <% end %>
+</ul>
