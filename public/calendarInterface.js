@@ -3,6 +3,7 @@ $(document).ready(function() {
   	flat : true,
   	mode : 'range',
   	format : 'Y-m-d'
+    
   });
 
   $('#submit').click(function(){

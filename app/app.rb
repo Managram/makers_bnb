@@ -13,6 +13,16 @@ class MakersBnb < Sinatra::Base
     erb(:"space/new")
   end
 
+  helpers do
+    def send_bookings(bookings)
+      bookings.map { |booking| get_date_range(booking) }.flatten      
+    end
+
+    def get_date_range(booking)
+      (booking.start_date...booking.end_date).map { |date| date }
+    end
+  end
+
   post '/space/new' do
     Space.create(name: params[:name],
                  description: params[:description],
@@ -31,6 +41,8 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/reservation' do
+    bookings_array = Booking.all
+    return send_bookings(bookings_array)
     File.read(File.join('public', 'calendar.html'))
   end
 
