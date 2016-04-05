@@ -15,8 +15,8 @@ class MakersBnb < Sinatra::Base
   post '/space/new' do
     user = User.get(session[:user_id])
     user.spaces.create(name: params[:name],
-                 description: params[:description],
-                 price: params[:price])
+                       description: params[:description],
+                       price: params[:price])
     redirect "/space/index"
   end
 
@@ -35,8 +35,8 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/user/new' do
-    @user = User.create(name: params[:name])
-    session[:user_id] = @user.id
+    user = User.create(name: params[:name])
+    session[:user_id] = user.id
     redirect '/space/new'
   end
 
