@@ -9,6 +9,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'database_cleaner'
 require 'helpers'
+require 'web_helper'
 require 'factory_girl'
 
 Capybara.app = MakersBnb
@@ -17,7 +18,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
-  config.include Helpers
+  # config.include Helpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

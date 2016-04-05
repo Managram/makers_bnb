@@ -7,3 +7,9 @@ def register_space(name: "new space",
     fill_in :price, with: price
     click_button("create space")
 end
+
+def register_user(name: "patrick")
+  visit 'user/new'
+  fill_in :name, with: name
+  click_button("sign up")
+end

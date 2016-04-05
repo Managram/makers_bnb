@@ -1,6 +1,8 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+
 require_relative 'space'
+require_relative 'user'
 require_relative 'request'
 require_relative 'booking'
 
