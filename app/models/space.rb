@@ -1,5 +1,3 @@
-require 'data_mapper'
-
 class Space
 
   include DataMapper::Resource
@@ -10,5 +8,6 @@ class Space
   property :price,       Float, scale: 2
 
   belongs_to :user
+
 
 end

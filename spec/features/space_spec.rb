@@ -1,4 +1,5 @@
 feature 'creating a new space' do
+
   scenario 'user creates a new space name' do
     register_user
     register_space
