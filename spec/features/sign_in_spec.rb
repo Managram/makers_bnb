@@ -25,7 +25,7 @@ feature 'user sign in' do
   context 'succesful sign in' do
     scenario 'a user can sign in after registering' do
       sign_in
-      expect(page.current_path).to eq "/space/new"
+      expect(page.current_path).to eq "/space/index"
     end
   end
 

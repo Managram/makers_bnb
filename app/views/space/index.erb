@@ -1,5 +1,13 @@
 <h1> Spaces </h1>
 
+<form action="/space/new">
+  <input type="submit" value="Create a Space">
+</form>
+<form action="/booking-requests">
+  <input type="submit" value="View Requests">
+</form>
+
+
 <ul id='spaces'>
   <% @spaces.each do |space| %>
     <li>

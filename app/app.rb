@@ -28,6 +28,10 @@ class MakersBnb < Sinatra::Base
 
   register Sinatra::Flash
 
+  get '/home' do
+    erb :index
+  end
+
   get '/space/new' do
     erb(:"space/new")
   end
@@ -69,7 +73,7 @@ class MakersBnb < Sinatra::Base
                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/space/new'
+      redirect '/space/index'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb(:"user/new")
@@ -85,7 +89,7 @@ class MakersBnb < Sinatra::Base
                              params[:password])
     if user
       session[:user_id] = user.id
-      redirect "/space/new"
+      redirect "/space/index"
     else
       flash.now[:errors] = ["Incorrect email or password"]
       erb(:"sessions/new")
