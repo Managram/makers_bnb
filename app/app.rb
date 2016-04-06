@@ -11,6 +11,8 @@ class MakersBnb < Sinatra::Base
   set :session_secret, "super_secret"
   set :public_folder, 'public'
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   get '/space/new' do
@@ -55,7 +57,7 @@ class MakersBnb < Sinatra::Base
     booked_dates = send_bookings(Booking.all)
     JSON.generate({ dates: booked_dates })
   end
-  
+
   get '/user/new' do
     @user = User.new
     erb(:"user/new")
@@ -69,7 +71,7 @@ class MakersBnb < Sinatra::Base
                      password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
-      redirect '/space/new'
+      redirect '/space/index'
     else
       flash.now[:errors] = @user.errors.full_messages
       erb(:"user/new")
@@ -85,10 +87,21 @@ class MakersBnb < Sinatra::Base
                              params[:password])
     if user
       session[:user_id] = user.id
-      redirect "/space/new"
+      redirect "/space/index"
     else
       flash.now[:errors] = ["Incorrect email or password"]
       erb(:"sessions/new")
+    end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/sessions/new'
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
     end
   end
 
