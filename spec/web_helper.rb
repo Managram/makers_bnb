@@ -8,8 +8,24 @@ def register_space(name: "new space",
     click_button("create space")
 end
 
-def register_user(name: "patrick")
-  visit 'user/new'
+def register_user(name: "patrick",
+                  email: "email@email.com",
+                  username: "pdon",
+                  password: "password",
+                  password_confirmation: "password")
+  visit '/user/new'
   fill_in :name, with: name
+  fill_in :email, with: email
+  fill_in :username, with: username
+  fill_in :password, with: password
+  fill_in :password_confirmation, with: password_confirmation
   click_button("sign up")
+end
+
+def sign_in(email: "email@email.com",
+            password: "password")
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button("Sign in")
 end
