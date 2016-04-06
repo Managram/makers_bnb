@@ -14,6 +14,21 @@ class MakersBnb < Sinatra::Base
     erb(:"space/new")
   end
 
+  helpers do
+    def send_bookings(bookings)
+      bookings.map { |booking| get_date_range(booking) }.flatten
+    end
+
+    def get_date_range(booking)
+      (booking.start_date...booking.end_date).map { |date| date.to_s }
+    end
+
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
+  end
+
   post '/space/new' do
     user = User.get(session[:user_id])
     user.spaces.create(name: params[:name],
@@ -32,6 +47,12 @@ class MakersBnb < Sinatra::Base
     erb(:"/space/view")
   end
 
+
+  get '/booked-dates' do
+    booked_dates = send_bookings(Booking.all)
+    JSON.generate({ dates: booked_dates })
+  end
+  
   get '/user/new' do
     erb(:"user/new")
   end
@@ -40,12 +61,6 @@ class MakersBnb < Sinatra::Base
     user = User.create(name: params[:name])
     session[:user_id] = user.id
     redirect '/space/new'
-  end
-
-  helpers do
-    def current_user
-      @current_user ||= User.get(session[:user_id])
-    end
   end
 
   get '/reservation' do
