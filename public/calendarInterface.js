@@ -4,7 +4,7 @@ $(document).ready(function() {
     var formattedDates = new Array();
     $.each(dates, function(index, date){
       var parsedDate = Date.parse(date) - 3600 * 1000;
-      var newDate = new Date(parsedDate)
+      var newDate    = new Date(parsedDate);
       formattedDates.push(newDate.toString());
     })
     return formattedDates;
