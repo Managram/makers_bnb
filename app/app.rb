@@ -9,15 +9,29 @@ require 'json'
 class MakersBnb < Sinatra::Base
   enable :sessions
   set :session_secret, "super_secret"
+  set :public_folder, 'public'
 
   use Rack::MethodOverride
 
   register Sinatra::Flash
 
-  set :public_folder, 'public'
-
   get '/space/new' do
     erb(:"space/new")
+  end
+
+  helpers do
+    def send_bookings(bookings)
+      bookings.map { |booking| get_date_range(booking) }.flatten
+    end
+
+    def get_date_range(booking)
+      (booking.start_date...booking.end_date).map { |date| date.to_s }
+    end
+
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
+
   end
 
   post '/space/new' do
@@ -38,6 +52,12 @@ class MakersBnb < Sinatra::Base
     erb(:"/space/view")
   end
 
+
+  get '/booked-dates' do
+    booked_dates = send_bookings(Booking.all)
+    JSON.generate({ dates: booked_dates })
+  end
+
   get '/user/new' do
     @user = User.new
     erb(:"user/new")
@@ -45,10 +65,10 @@ class MakersBnb < Sinatra::Base
 
   post '/user/new' do
     @user = User.new(name: params[:name],
-                       email: params[:email],
-                       username: params[:username],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+                     email: params[:email],
+                     username: params[:username],
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/space/new'
