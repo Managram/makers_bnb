@@ -56,8 +56,9 @@ class MakersBnb < Sinatra::Base
   end
 
 
-  get '/booked-dates' do
-    booked_dates = send_bookings(Booking.all)
+  get '/booked-dates/:id' do
+    bookings = Booking.all(space_id: params[:id])
+    booked_dates = send_bookings(bookings)
     JSON.generate({ dates: booked_dates })
   end
 
@@ -108,9 +109,11 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/reservation' do
-    p params[:space_id]
-    p session[:user_id]
-    Request.create(start_date: params[:start_date], end_date: params[:end_date], status: 1, space_id: params[:space_id], user_id: session[:user_id])
+    Request.create(start_date: params[:start_date], 
+                   end_date: params[:end_date], 
+                   status: 1, 
+                   space_id: params[:space_id], 
+                   user_id: session[:user_id])
   end
 
   get '/booking-requests' do

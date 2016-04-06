@@ -10,9 +10,11 @@ $(document).ready(function() {
     return formattedDates;
   }
 
+  var spaceId = $('h2').attr('id');
+
   $.ajax({
       type:     'GET',
-      url:      'http://localhost:4567/booked-dates',
+      url:      'http://localhost:4567/booked-dates/'+spaceId+'',
       dataType: 'json',
   }).then(function(data){
     $('.date').pickmeup({
