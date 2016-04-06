@@ -27,6 +27,24 @@ class MakersBnb < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
+
+    def get_space_name(space_id)
+      Space.first(id: space_id).name
+    end
+
+    def get_user_name(user_id)
+      User.first(id: user_id).username
+    end
+
+    def space_ids_to_array
+      spaces = Space.all(user_id: session[:user_id])
+      space_ids = []
+      spaces.each do |space|
+        space_ids.push(space.id)
+      end
+      space_ids
+    end
+
   end
 
   get '/home' do
@@ -117,7 +135,8 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/booking-requests' do
-    @requests = Request.all(status: 1)
+    @my_requests = Request.all(user_id: session[:user_id], status: 1)
+    @received_requests = Request.all(space_id: space_ids_to_array, status: 1)
     erb(:'requests/booking-requests')
   end
 
