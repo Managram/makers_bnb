@@ -64,6 +64,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/reservation/:id' do
+    @space = Space.first(id: params[:id])
     # File.read(File.join('public', 'calendar.html.erb'))
     erb(:'calendar')
   end
