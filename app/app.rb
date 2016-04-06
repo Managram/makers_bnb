@@ -58,7 +58,6 @@ class MakersBnb < Sinatra::Base
 
   get '/booked-dates/:id' do
     bookings = Booking.all(space_id: params[:id])
-    p params[:id]
     booked_dates = send_bookings(bookings)
     JSON.generate({ dates: booked_dates })
   end
