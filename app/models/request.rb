@@ -6,4 +6,7 @@ class Request
   property :end_date,    Date
   property :status,      Integer
 
+	belongs_to :space
+  belongs_to :user
+  
 end

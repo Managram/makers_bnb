@@ -70,7 +70,9 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/reservation' do
-    Request.create(start_date: params[:start_date], end_date: params[:end_date], status: 1)
+    p params[:space_id]
+    p session[:user_id]
+    Request.create(start_date: params[:start_date], end_date: params[:end_date], status: 1, space_id: params[:space_id], user_id: session[:user_id])
   end
 
   get '/booking-requests' do

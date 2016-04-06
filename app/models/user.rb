@@ -8,5 +8,7 @@ class User
   property :name,        String
 
   has n, :spaces
+  has n, :requests
+  has n, :bookings
 
 end
