@@ -9,10 +9,9 @@ require 'json'
 class MakersBnb < Sinatra::Base
   enable :sessions
   set :session_secret, "super_secret"
+  set :public_folder, 'public'
 
   register Sinatra::Flash
-
-  set :public_folder, 'public'
 
   get '/space/new' do
     erb(:"space/new")
@@ -43,10 +42,10 @@ class MakersBnb < Sinatra::Base
 
   post '/user/new' do
     @user = User.new(name: params[:name],
-                       email: params[:email],
-                       username: params[:username],
-                       password: params[:password],
-                       password_confirmation: params[:password_confirmation])
+                     email: params[:email],
+                     username: params[:username],
+                     password: params[:password],
+                     password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect '/space/new'
