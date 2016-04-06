@@ -11,12 +11,6 @@ class MakersBnb < Sinatra::Base
   set :session_secret, "super_secret"
   set :public_folder, 'public'
 
-  register Sinatra::Flash
-
-  get '/space/new' do
-    erb(:"space/new")
-  end
-
   helpers do
     def send_bookings(bookings)
       bookings.map { |booking| get_date_range(booking) }.flatten
@@ -30,6 +24,12 @@ class MakersBnb < Sinatra::Base
       @current_user ||= User.get(session[:user_id])
     end
 
+  end
+
+  register Sinatra::Flash
+
+  get '/space/new' do
+    erb(:"space/new")
   end
 
   post '/space/new' do
@@ -55,7 +55,7 @@ class MakersBnb < Sinatra::Base
     booked_dates = send_bookings(Booking.all)
     JSON.generate({ dates: booked_dates })
   end
-  
+
   get '/user/new' do
     @user = User.new
     erb(:"user/new")
