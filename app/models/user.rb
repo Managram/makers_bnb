@@ -17,6 +17,8 @@ class User
   validates_confirmation_of :password
 
   has n, :spaces
+  has n, :requests
+  has n, :bookings
 
   def password=(password)
     @password = password

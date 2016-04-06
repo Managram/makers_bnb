@@ -8,6 +8,7 @@ class Space
   property :price,       Float, scale: 2, required: true
 
   belongs_to :user
-
+ 	has n, :requests
+  has n, :bookings
 
 end

@@ -34,11 +34,13 @@ $(document).ready(function() {
 
   $('#submit').click(function(){
     var dateRange = $('.date').pickmeup('get_date');
+    var spaceId = $('h2').attr('id');
     $.ajax({
       type:    'POST',
       url:     'http://localhost:4567/reservation',
       data:    {"start_date": dateRange[0],
-                "end_date": dateRange[1]},
+                "end_date": dateRange[1],
+                "space_id": spaceId },
       crossDomain: true
     });
   });

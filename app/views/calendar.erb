@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/pickmeup.min.css" type="text/css">
+		<script src='/jquery.min.js'></script>
+		<script type="text/javascript" src="/jquery.pickmeup.min.js"></script>	
+		<script src='/calendarInterface.js'></script>
+	</head>
+	<body>
+	<h1>Reservations</h1>
+	<h2 id="<%= @space.id %>"><%= @space.name %></h2>
+		<div class="date" data-pmu-format="Y-m-d"> </div>
+		<input type="submit" value='Submit' id='submit'>
+	</body>
+</html>
