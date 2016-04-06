@@ -1,8 +1,19 @@
 <h1>Booking Requests</h1>
 <section>
+  <h2> Requests made by me </h2>
   <ul>
-    <% @requests.each do |request|%>
+    <% @my_requests.each do |request|%>
       <li id="<%=request.id%>">
+        Start Date: <%= request.start_date %>
+        End Date: <%= request.end_date %>
+      </li>
+      <% end %>
+  </ul>
+  <h2> Requests received </h2>
+  <ul>
+    <% @received_requests.each do |request|%>
+      <li id="<%=request.id%>">
+        Name: <%= get_space_name(request.space_id) %>
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
         <form action="/booking-requests/accepted/<%= request.id %>" method="post">
