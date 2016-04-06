@@ -21,3 +21,11 @@ def register_user(name: "patrick",
   fill_in :password_confirmation, with: password_confirmation
   click_button("sign up")
 end
+
+def sign_in(email: "email@email.com",
+            password: "password")
+  visit '/sessions/new'
+  fill_in :email, with: email
+  fill_in :password, with: password
+  click_button("Sign in")
+end
