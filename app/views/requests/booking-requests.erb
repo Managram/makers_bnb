@@ -4,6 +4,7 @@
   <ul>
     <% @my_requests.each do |request|%>
       <li id="<%=request.id%>">
+        Space Name: <%= get_space_name(request.space_id) %>
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
       </li>
@@ -13,9 +14,10 @@
   <ul>
     <% @received_requests.each do |request|%>
       <li id="<%=request.id%>">
-        Name: <%= get_space_name(request.space_id) %>
+        Space Name: <%= get_space_name(request.space_id) %>
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
+        Requested by: <%= get_user_name(request.user_id) %>
         <form action="/booking-requests/accepted/<%= request.id %>" method="post">
           <input type="submit" value="Accept">
         </form>

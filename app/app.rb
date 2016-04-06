@@ -32,6 +32,10 @@ class MakersBnb < Sinatra::Base
       Space.first(id: space_id).name
     end
 
+    def get_user_name(user_id)
+      User.first(id: user_id).username
+    end
+
   end
 
   get '/home' do
