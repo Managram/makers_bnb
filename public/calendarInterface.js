@@ -14,7 +14,7 @@ $(document).ready(function() {
 
   $.ajax({
       type:     'GET',
-      url:      'http://localhost:4567/booked-dates/'+spaceId+'',
+      url:      'http://localhost:9292/booked-dates/'+spaceId+'',
       dataType: 'json',
   }).then(function(data){
     $('.date').pickmeup({
@@ -39,7 +39,7 @@ $(document).ready(function() {
     var spaceId = $('h2').attr('id');
     $.ajax({
       type:    'POST',
-      url:     'http://localhost:4567/reservation',
+      url:     'http://localhost:9292/reservation',
       data:    {"start_date": dateRange[0],
                 "end_date": dateRange[1],
                 "space_id": spaceId },

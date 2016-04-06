@@ -11,7 +11,9 @@
         <button type="submit">Sign out</button>
       </form>
     <% end %>
-
+    <form action="/space/index">
+        <button type="submit">Spaces</button>
+    </form>
     <% if flash[:errors] && !flash[:errors].empty? %>
       <% flash[:errors].each do |error| %>
         <li><%= error %></li>
