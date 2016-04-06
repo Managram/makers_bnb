@@ -10,6 +10,8 @@ class MakersBnb < Sinatra::Base
   enable :sessions
   set :session_secret, "super_secret"
 
+  use Rack::MethodOverride
+
   register Sinatra::Flash
 
   set :public_folder, 'public'
@@ -70,6 +72,11 @@ class MakersBnb < Sinatra::Base
       flash.now[:errors] = ["Incorrect email or password"]
       erb(:"sessions/new")
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/sessions/new'
   end
 
   helpers do
