@@ -1,8 +1,11 @@
-feature 'creating a user' do
+feature 'unsuccessfully creating a user' do
 
-    scenario 'user count does not change when user is not authenticated' do
-      expect(register_user).to change{User.count}.by(1)
+    scenario 'user count does not increase by one when a user registers incorrectly' do
+      expect{register_user(password: "wrongpw")}.to_not change{User.count}
     end
+end
+
+  feature 'creating a user' do
 
     before :each do
       register_user
@@ -21,8 +24,6 @@ feature 'creating a user' do
       authenticated_user = User.authenticate(user.username, "invalidpassword")
       expect(authenticated_user).not_to eq user
     end
-
-
 
     scenario 'creates a new user in the database' do
       expect(User.first.name).to eq"patrick"
