@@ -123,9 +123,8 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/booking-requests' do
-    user_id = session[:user_id]
-    @my_requests = Request.all(user_id: user_id, status: 1)
-    @spaces = Space.all(user_id: user_id)
+    @my_requests = Request.all(user_id: session[:user_id], status: 1)
+    @spaces = Space.all(user_id: session[:user_id])
     space_ids = []
     @spaces.each do |space|
       space_ids.push(space.id)
