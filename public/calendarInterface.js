@@ -19,7 +19,7 @@ $(document).ready(function() {
       flat:       true,
       mode:       'range',
       format:     'Y-m-d',
-      calendars:  2,
+      calendars:  1,
       render:     function(date) {
                     var bookedDates = formatDates(data.dates);
                     if ($.inArray(date.toString(), bookedDates) > -1){
