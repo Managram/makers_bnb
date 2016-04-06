@@ -10,6 +10,7 @@ gem "database_cleaner"
 gem "rake"
 gem "pry"
 gem "selenium-webdriver"
+gem "sinatra-flash"
 
 group :test do
   gem "rspec"
