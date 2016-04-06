@@ -87,7 +87,7 @@ class MakersBnb < Sinatra::Base
                              params[:password])
     if user
       session[:user_id] = user.id
-      redirect "/space/new"
+      redirect "/space/index"
     else
       flash.now[:errors] = ["Incorrect email or password"]
       erb(:"sessions/new")
