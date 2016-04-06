@@ -11,6 +11,10 @@ class MakersBnb < Sinatra::Base
   set :session_secret, "super_secret"
   set :public_folder, 'public'
 
+  use Rack::MethodOverride
+
+  register Sinatra::Flash
+
   helpers do
     def send_bookings(bookings)
       bookings.map { |booking| get_date_range(booking) }.flatten
@@ -23,10 +27,7 @@ class MakersBnb < Sinatra::Base
     def current_user
       @current_user ||= User.get(session[:user_id])
     end
-
   end
-
-  register Sinatra::Flash
 
   get '/home' do
     erb :index
@@ -96,9 +97,13 @@ class MakersBnb < Sinatra::Base
     end
   end
 
+  delete '/sessions' do
+    session[:user_id] = nil
+    redirect '/home'
+  end
+
   get '/reservation/:id' do
     @space = Space.first(id: params[:id])
-    # File.read(File.join('public', 'calendar.html.erb'))
     erb(:'calendar')
   end
 

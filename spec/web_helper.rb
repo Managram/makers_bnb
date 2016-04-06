@@ -19,7 +19,7 @@ def register_user(name: "patrick",
   fill_in :username, with: username
   fill_in :password, with: password
   fill_in :password_confirmation, with: password_confirmation
-  click_button("sign up")
+  click_button("Sign up")
 end
 
 def sign_in(email: "email@email.com",
