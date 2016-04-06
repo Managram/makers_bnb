@@ -63,8 +63,9 @@ class MakersBnb < Sinatra::Base
     redirect '/space/new'
   end
 
-  get '/reservation' do
-    File.read(File.join('public', 'calendar.html'))
+  get '/reservation/:id' do
+    # File.read(File.join('public', 'calendar.html.erb'))
+    erb(:'calendar')
   end
 
   post '/reservation' do
