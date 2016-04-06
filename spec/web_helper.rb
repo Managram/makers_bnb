@@ -13,7 +13,7 @@ def register_user(name: "patrick",
                   username: "pdon",
                   password: "password",
                   password_confirmation: "password")
-  visit 'user/new'
+  visit '/user/new'
   fill_in :name, with: name
   fill_in :email, with: email
   fill_in :username, with: username
