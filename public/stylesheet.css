@@ -26,4 +26,15 @@ table td:first-child {
 
 a {
   color: #AA1925;
+  text-decoration: none;
+}
+
+.navbar-button {
+ background:none!important;
+  border:2px;
+  padding:0!important;
+  font: inherit;
+  color: #AA1925 ;
+  /*border is optional*/
+  cursor: pointer;
 }
