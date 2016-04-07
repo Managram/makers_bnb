@@ -1,20 +1,42 @@
-<h1> Spaces </h1>
+<head>
+  <link rel="stylesheet" href="/pickmeup.min.css" type="text/css">
+  <script src='/jquery.min.js'></script>
+  <script type="text/javascript" src="/jquery.pickmeup.min.js"></script>
+  <script src='/calendarInterface.js'></script>
+</head>
 
-<form action="/space/new">
-  <input type="submit" value="Create a Space">
-</form>
+<body>
+  <h1> Spaces </h1>
 
-<form action="/booking-requests">
-  <input type="submit" value="View Requests">
-</form>
+  <form action="/space/new">
+    <input type="submit" value="Create a Space">
+  </form>
 
-<ul id='spaces'>
-  <% @spaces.each do |space| %>
-    <li>
-        <form action="/space/<%= space.id %>/view">
-          Space: <%= space.name %>
-          <input type="submit" value="view space">
-        </form>
-    </li>
-  <% end %>
-</ul>
+  <form action="/booking-requests">
+    <input type="submit" value="View Requests">
+  </form>
+
+  <div class="date" data-pmu-format="Y-m-d"> </div>
+  <input type="submit" value='Search' id='search'>
+
+
+  <ul id='spaces'>
+    <% @spaces.each do |space| %>
+      <% if @searched_dates == nil %>     
+        <li>
+            <form action="/space/<%= space.id %>/view">
+              Space: <%= space.name %>
+              <input type="submit" value="view space">
+            </form>
+        </li>
+      <% elsif date_match(@searched_dates, space).empty?  %>
+        <li>
+            <form action="/space/<%= space.id %>/view">
+              Space: <%= space.name %>
+              <input type="submit" value="view space">
+            </form>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</body>
