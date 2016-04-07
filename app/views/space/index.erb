@@ -17,12 +17,14 @@
   </form>
 
   <div class="date" data-pmu-format="Y-m-d"> </div>
-  <input type="submit" value='Search' id='search'>
-
+  <input type="submit" value='Search' id='search' onClick="window.location.reload()">
+  <form action="/space/reset-search" method="post">
+    <input type="submit" value="Reset Search">
+  </form>
 
   <ul id='spaces'>
     <% @spaces.each do |space| %>
-      <% if @searched_dates == nil %>     
+      <% if @searched_dates == nil %>
         <li>
             <form action="/space/<%= space.id %>/view">
               Space: <%= space.name %>
