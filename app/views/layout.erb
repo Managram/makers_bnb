@@ -7,48 +7,30 @@
   </head>
 
   <body>
-    <!-- <ul class=""> -->
-      <% if current_user %>
-      <table border="0">
-        <tr>
-          <td><a href="../space/index">Spaces</a></td>
-      <!-- <li> -->
+    <table class = "nav">
+      <tr>
+        <td><a href="../space/index">Spaces</a></td>
+        <% if current_user %>
         <td><form action="/sessions" method="post">
           <input type="hidden" name="_method" value="delete">
-          <button class="navbar-button" type="submit">Sign out</button>
+          <button type="submit">Sign out</button>
         </form></td>
-      <!-- </li> -->
-      <% else %>
+        <% else %>
         <td><a href="../user/new">Sign Up</a></td>
         <td><a href="../sessions/new">Sign In</a></td>
-      <% end %>
-
-    </tr>
+        <% end %>
+      </tr>
   </table>
-    <!-- </ul> -->
-    <!-- <form action="/space/index">
-        <button type="submit">Spaces</button>
-    </form> -->
+
     <% if flash[:errors] && !flash[:errors].empty? %>
       <% flash[:errors].each do |error| %>
         <li><%= error %></li>
       <% end %>
     <% end %>
-    <%= yield %>
-    <!-- <% if current_user %>
-      <form action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit">Sign out</button>
-      </form>
-    <% end %>
-    <% unless current_user %>
-      <form action="/user/new">
-        <button type="submit">Sign up</button>
-      </form>
-      <form action="/sessions/new">
-        <button type="submit">Sign in</button>
-      </form>
-    <% end %> -->
+
+    <section class="page">
+      <%= yield %>
+    </section>
 
   </body>
 
