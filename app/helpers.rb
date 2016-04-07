@@ -39,4 +39,5 @@ module Helpers
   def js_to_rb_date(date)
     Date.parse(date)
   end
+
 end

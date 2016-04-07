@@ -1,30 +1,23 @@
-<h1>Booking Requests</h1>
+<h1>My Bookings</h1>
 <section>
-  <h2> Requests made by me </h2>
   <ul>
     <% @my_requests.each do |request|%>
       <li id="<%=request.id%>">
         Space Name: <%= get_space_name(request.space_id) %>
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
+        Status: <% if request.status == 1 %>
+                  Pending
+                <% elsif request.status == 2 %>
+                  Confirmed
+                <% else %>
+                  Declined
+                <% end %>
       </li>
       <% end %>
   </ul>
-  <h2> Requests received </h2>
-  <ul>
-    <% @received_requests.each do |request|%>
-      <li id="<%=request.id%>">
-        Space Name: <%= get_space_name(request.space_id) %>
-        Start Date: <%= request.start_date %>
-        End Date: <%= request.end_date %>
-        Requested by: <%= get_user_name(request.user_id) %>
-        <form action="/booking-requests/accepted/<%= request.id %>" method="post">
-          <input type="submit" value="Accept">
-        </form>
-        <form action="/booking-requests/declined/<%= request.id %>" method="post">
-          <input type="submit" value="Decline" name="Decline">
-        </form>
-      </li>
-      <% end %>
-  </ul>
+
+
+
+
 </section>

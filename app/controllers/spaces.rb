@@ -22,7 +22,7 @@ class MakersBnb < Sinatra::Base
     session[:searched_dates] = get_date_range(js_to_rb_date(params[:start_date]), js_to_rb_date(params[:end_date]))
     redirect "/space/index"
   end
-  
+
   post '/space/reset-search' do
     session[:searched_dates] = nil
     redirect "/space/index"
@@ -30,7 +30,20 @@ class MakersBnb < Sinatra::Base
 
   get '/space/:id/view' do
     @space = Space.first(id: params[:id])
-    erb(:"/space/view")
+    erb(:"space/view")
   end
+
+  get '/my-spaces' do
+    @spaces = Space.all(user_id: current_user.id)
+    erb(:"space/myspaces")
+  end
+
+  get '/my-spaces/:space_id' do
+    # @requests = Request.all(space_id: params[:space_id])
+    @this_space = Space.first(id: params[:space_id])
+    params[:space_id]
+    erb(:"space/space")
+  end
+
 
 end
