@@ -4,6 +4,7 @@
 <ul>
   <% @this_space.requests(status: 1).each do |request| %>
     <li id="<%=request.id%>">
+      Requested on: <%= request.time %>
       Start Date: <%= request.start_date %>
       End Date: <%= request.end_date %>
       Requested by: <%= get_user_name(request.user_id) %>
@@ -22,6 +23,7 @@
 <ul>
   <% @this_space.requests(status: 2).each do |request| %>
     <li id="<%=request.id%>">
+      Requested on: <%= request.time %>
       Start Date: <%= request.start_date %>
       End Date: <%= request.end_date %>
       Requested by: <%= get_user_name(request.user_id) %>
@@ -33,6 +35,7 @@
 <ul>
   <% @this_space.requests(status: 0).each do |request| %>
     <li id="<%=request.id%>">
+      Requested on: <%= request.time %>
       Start Date: <%= request.start_date %>
       End Date: <%= request.end_date %>
       Requested by: <%= get_user_name(request.user_id) %>
