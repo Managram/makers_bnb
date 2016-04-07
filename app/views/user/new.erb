@@ -1,18 +1,26 @@
+<section class="sign-up">
+
+<h1>Feel at home, anywhere</h1>
+
+<h2>Sign up to MakersBnB</h2>
+
 <form action="/user/new" method="post">
   <p>
-    <input type="text" name="name" value="<%= @user.name %>" placeholder="Name" required>
+    <input class="sign-up-elements" type="text" name="name" value="<%= @user.name %>" placeholder="Name" required>
   </p>
   <p>
-    <input type="email" name="email" value="<%= @user.email %>" placeholder="Email" required>
+    <input class="sign-up-elements" type="email" name="email" value="<%= @user.email %>" placeholder="Email" required>
   </p>
   <p>
-    <input type="text" name="username" value="<%= @user.username %>" placeholder="Username" required>
+    <input class="sign-up-elements" type="text" name="username" value="<%= @user.username %>" placeholder="Username" required>
   </p>
   <p>
-    <input type="password" name="password" placeholder="Password" required>
+    <input class="sign-up-elements" type="password" name="password" placeholder="Password" required>
   </p>
   <p>
-  <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+  <input class="sign-up-elements" type="password" name="password_confirmation" placeholder="Confirm Password" required>
   </p>
   <button type="submit">Sign up</button>
 </form>
+
+</section>
