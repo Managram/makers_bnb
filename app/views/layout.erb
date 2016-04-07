@@ -7,7 +7,35 @@
   </head>
 
   <body>
-    <% if current_user %>
+    <!-- <ul class=""> -->
+      <% if current_user %>
+      <table border="0">
+        <tr>
+          <td><a href="../space/index">Spaces</a></td>
+      <!-- <li> -->
+        <td><form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class="navbar-button" type="submit">Sign out</button>
+        </form></td>
+      <!-- </li> -->
+      <% else %>
+        <td><a href="../user/new">Sign Up</a></td>
+        <td><a href="../sessions/new">Sign In</a></td>
+      <% end %>
+
+    </tr>
+  </table>
+    <!-- </ul> -->
+    <!-- <form action="/space/index">
+        <button type="submit">Spaces</button>
+    </form> -->
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    <% end %>
+    <%= yield %>
+    <!-- <% if current_user %>
       <form action="/sessions" method="post">
         <input type="hidden" name="_method" value="delete">
         <button type="submit">Sign out</button>
@@ -20,16 +48,8 @@
       <form action="/sessions/new">
         <button type="submit">Sign in</button>
       </form>
-    <% end %>
-    <form action="/space/index">
-        <button type="submit">Spaces</button>
-    </form>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    <% end %>
-    <%= yield %>
+    <% end %> -->
+
   </body>
 
 </html>

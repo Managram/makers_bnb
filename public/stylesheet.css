@@ -1,4 +1,29 @@
 body {
-  background-color: lightblue;
   font-family: "Montserrat";
+}
+h1 {
+  color: #AA1925
+}
+ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+
+li {
+   display: inline;
+}
+
+.navbar-button {
+  background:none!important;
+   border:none;
+   padding:0!important;
+   font: inherit;
+   /*border is optional*/
+   border-bottom:1px solid #444;
+   cursor: pointer;
+}
+
+.navbar{
+
 }
