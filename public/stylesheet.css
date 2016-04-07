@@ -25,6 +25,10 @@ table td:first-child {
   border-left: none;
 }
 
+table td:last-child {
+  border-left: none;
+}
+
 a {
   color: #AA1925;
   text-decoration: none;
@@ -49,6 +53,17 @@ a {
  left: 50%;
  margin-top: -150px;
  margin-left: -250px;
+}
+
+.sign-in {
+ text-align: center;
+ height: 260px;
+ width: 350px;
+ position: fixed;
+ top: 35%;
+ left: 50%;
+ margin-top: -130px;
+ margin-left: -175px;
 }
 
 .sign-up-elements {
