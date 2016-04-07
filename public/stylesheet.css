@@ -95,12 +95,12 @@ button {
 
 .book-a-space{
   text-align: center;
-  /*height: 260px;*/
+  height: 260px;
   width: 350px;
-  position: fixed;
-  /*top: 20%;*/
+  position: absolute;
+  top: 20%;
   left: 50%;
-  /*margin-top: -130px;*/
+  margin-top: -130px;
   margin-left: -175px;
 }
 
@@ -117,11 +117,18 @@ button {
   left: 50%;
   margin-top: -80px;
   margin-left: -175px;*/
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 li{
-  width: 200px;
+  width: 500px;
   padding: 10px;
   margin: 10px;
   border: 1px solid black;
+  margin: 3px auto;
+}
+
+#styling{
+  margin: 550px auto;
 }

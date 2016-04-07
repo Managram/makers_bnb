@@ -7,7 +7,6 @@
 
 <body>
   <section class="book-a-space">
-    <section class="searchoptions">
   <h1>Book a Space </h1>
 
   <!-- <form action="/space/new">
@@ -19,9 +18,8 @@
   <form action="/space/reset-search" method="post">
     <button class="search-button" type="submit">Reset Search</button>
   </form>
-</section>
-
-<section class="space-list">
+  </section>
+  <div id="styling">
   <ul id='spaces'>
     <% @spaces.each do |space| %>
       <% if @searched_dates == nil %>
@@ -43,6 +41,5 @@
       <% end %>
     <% end %>
   </ul>
-</section>
-</section>
+</div>
 </body>
