@@ -2,7 +2,7 @@
 <ul>
   <li id="<%=%>">
     <% @spaces.each do |space| %>
-      <a href='my-spaces/<%= space.id %>'>Space Name: <%= space.name %></a>
+      Space Name: <a href='my-spaces/<%= space.id %>'> <%= space.name %></a>
       Pending Requests: <%= space.requests(status: 1).count %>
       Confirmed Requests: <%= space.requests(status: 2).count %>
       Declined Requests: <%= space.requests(status: 0).count %>

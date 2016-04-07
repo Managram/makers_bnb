@@ -23,7 +23,7 @@ class MakersBnb < Sinatra::Base
     request = Request.first(id: params[:request_id])
     request.status = 0
     request.save
-    redirect '/my-bookings'
+    redirect "/my-spaces/#{request.space_id}"
   end
 
 end
