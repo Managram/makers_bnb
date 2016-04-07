@@ -38,6 +38,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  border-bottom: 2px solid #AA1925;
+}
+
 .navbar-button {
  background:none!important;
   border:2px;
@@ -88,13 +92,17 @@ button {
   padding: 0.75rem;
   min-width: 5em;
   line-height: 1.5rem;
-  horizontal-align: cent;
   vertical-align: middle;
   text-align: center;
   font-size: 18px;
+  cursor: pointer;
 }
 
-.book-a-space{
+button:hover {
+  background-color: rgba(243,243,243,0.4);
+}
+
+.book-a-space {
   text-align: center;
   height: 260px;
   width: 350px;
@@ -105,11 +113,11 @@ button {
   margin-left: -175px;
 }
 
-.search-button{
+.search-button {
   width: 200px;
 }
 
-#spaces{
+#spaces {
   list-style-type: none;
   /*height: 260px;
   width: 350px;
@@ -118,21 +126,20 @@ button {
   left: 50%;
   margin-top: -80px;
   margin-left: -175px;*/
+  margin: 490px auto;
   text-align: center;
 }
 
-#spaces
+#spaces li form {
+  padding-right: 42px;
+}
 
-li{
+li {
   width: 500px;
   padding: 10px;
   margin: 3px auto;
 }
 
-#styling{
-  margin: 550px auto;
-}
-
-.date{
+.date {
   padding-bottom: 20px;
 }
