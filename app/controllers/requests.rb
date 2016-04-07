@@ -13,8 +13,8 @@ class MakersBnb < Sinatra::Base
                    user_id: session[:user_id])
   end
 
-  get '/booking-requests' do
-    @my_requests = Request.all(user_id: session[:user_id], status: 1)
+  get '/my-bookings' do
+    @my_requests = Request.all(user_id: session[:user_id])
     @received_requests = Request.all(space_id: space_ids_to_array, status: 1)
     erb(:'requests/booking-requests')
   end
@@ -23,7 +23,7 @@ class MakersBnb < Sinatra::Base
     request = Request.first(id: params[:request_id])
     request.status = 0
     request.save
-    redirect '/booking-requests'
+    redirect "/my-spaces/#{request.space_id}"
   end
 
 end

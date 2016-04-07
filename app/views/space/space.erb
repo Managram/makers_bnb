@@ -1,0 +1,47 @@
+<h1> <%= @this_space.name %> </h1>
+<h2> Bookings </h2>
+<h3> Pending </h3>
+<ul>
+  <% @this_space.requests(status: 1).each do |request| %>
+    <li id="<%=request.id%>">
+      Requested on: <%= request.time %>
+      Start Date: <%= request.start_date %>
+      End Date: <%= request.end_date %>
+      Requested by: <%= get_user_name(request.user_id) %>
+
+      <form action="/booking-requests/accepted/<%= request.id %>" method="post">
+        <input type="submit" value="Accept">
+      </form>
+      <form action="/booking-requests/declined/<%= request.id %>" method="post">
+        <input type="submit" value="Decline" name="Decline">
+      </form>
+    </li>
+  <% end %>
+</ul>
+
+<h3> Confirmed </h3>
+<ul>
+  <% @this_space.requests(status: 2).each do |request| %>
+    <li id="<%=request.id%>">
+      Requested on: <%= request.time %>
+      Start Date: <%= request.start_date %>
+      End Date: <%= request.end_date %>
+      Requested by: <%= get_user_name(request.user_id) %>
+    </li>
+  <% end %>
+</ul>
+
+<h3> Declined </h3>
+<ul>
+  <% @this_space.requests(status: 0).each do |request| %>
+    <li id="<%=request.id%>">
+      Requested on: <%= request.time %>
+      Start Date: <%= request.start_date %>
+      End Date: <%= request.end_date %>
+      Requested by: <%= get_user_name(request.user_id) %>
+    </li>
+  <% end %>
+</ul>
+
+
+
