@@ -18,7 +18,8 @@ class MakersBnb < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
+		session[:searched_dates] = nil
     redirect '/home'
   end
-  
+
 end
