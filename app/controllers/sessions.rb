@@ -1,6 +1,6 @@
 class MakersBnb < Sinatra::Base
 
-	get '/sessions/new' do
+  get '/sessions/new' do
     erb(:'sessions/new')
   end
 
@@ -18,6 +18,7 @@ class MakersBnb < Sinatra::Base
 
   delete '/sessions' do
     session[:user_id] = nil
+		session[:searched_dates] = nil
     redirect '/space/index'
   end
 

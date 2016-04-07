@@ -1,11 +1,11 @@
 module Helpers
 
-	def send_bookings(bookings)
-    bookings.map { |booking| get_date_range(booking) }.flatten
+	def retrieve_bookings(bookings)
+    bookings.map { |booking| get_date_range(booking.start_date, booking.end_date) }.flatten
   end
 
-  def get_date_range(booking)
-    (booking.start_date...booking.end_date).map { |date| date.to_s }
+  def get_date_range(start_date, end_date)
+    (start_date...end_date).map { |date| date.to_s }
   end
 
   def current_user
@@ -29,4 +29,14 @@ module Helpers
     space_ids
   end
 
+  def date_match(dates, space)
+    unavailable_dates = retrieve_bookings(Booking.all(space_id: space.id))
+    date_conflicts = []
+    dates.each { |date| date_conflicts << date if unavailable_dates.include?(date) }
+    date_conflicts
+  end
+
+  def js_to_rb_date(date)
+    Date.parse(date)
+  end
 end
