@@ -11,6 +11,14 @@
         <button type="submit">Sign out</button>
       </form>
     <% end %>
+    <% unless current_user %>
+      <form action="/user/new">
+        <button type="submit">Sign up</button>
+      </form>
+      <form action="/sessions/new">
+        <button type="submit">Sign in</button>
+      </form>
+    <% end %>
     <form action="/space/index">
         <button type="submit">Spaces</button>
     </form>

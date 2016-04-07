@@ -1,7 +1,7 @@
 class MakersBnb < Sinatra::Base
 
-  get '/home' do
-    erb :index
+  get '/' do
+    redirect '/space/index'
   end
 
 	get '/user/new' do
@@ -23,5 +23,5 @@ class MakersBnb < Sinatra::Base
       erb(:"user/new")
     end
   end
-  
+
 end
