@@ -6,28 +6,29 @@
 </head>
 
 <body>
-  <h1> Spaces </h1>
+  <section class="book-a-space">
+    <section class="searchoptions">
+  <h1>Book a Space </h1>
 
-  <form action="/space/new">
-    <input type="submit" value="Create a Space">
-  </form>
-
-  <form action="/booking-requests">
-    <input type="submit" value="View Requests">
-  </form>
-
+  <!-- <form action="/space/new">
+    <button type="submit">Create a Space</button>
+  </form> -->
   <div class="date" data-pmu-format="Y-m-d"> </div>
-  <input type="submit" value='Search' id='search'>
+  <button class="search-button" type="submit" id='search'>Search</button>
+  <p>
   <form action="/space/reset-search" method="post">
-    <input type="submit" value="Reset Search">
+    <button class="search-button" type="submit">Reset Search</button>
   </form>
+</section>
 
+<section class="space-list">
   <ul id='spaces'>
     <% @spaces.each do |space| %>
       <% if @searched_dates == nil %>
         <li>
             <form action="/space/<%= space.id %>/view">
               Space: <%= space.name %>
+              Price: <%= space.price %>
               <input type="submit" value="view space">
             </form>
         </li>
@@ -35,10 +36,13 @@
         <li>
             <form action="/space/<%= space.id %>/view">
               Space: <%= space.name %>
+              Price: <%= space.price %>
               <input type="submit" value="view space">
             </form>
         </li>
       <% end %>
     <% end %>
   </ul>
+</section>
+</section>
 </body>

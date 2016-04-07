@@ -6,8 +6,12 @@ h1 {
   font-size: 40px;
 }
 
+h2 {
+  align-items: center;
+}
+
 .page {
-  padding: 20px 0px 0px 0px;
+  padding: 50px 0px 0px 0px;
 }
 
 .nav {
@@ -70,8 +74,11 @@ a {
  font-family: 'Montserrat';
  border-radius:6px;
  border:groove;
- font-size: 30px;
+ font-size: 20px;
  margin: 5px;
+ padding: 10px 10px 10px 10px;
+ width: 250px;
+ align-items: center;
 }
 
 button {
@@ -84,4 +91,37 @@ button {
   vertical-align: middle;
   text-align: center;
   font-size: 18px;
+}
+
+.book-a-space{
+  text-align: center;
+  /*height: 260px;*/
+  width: 350px;
+  position: fixed;
+  /*top: 20%;*/
+  left: 50%;
+  /*margin-top: -130px;*/
+  margin-left: -175px;
+}
+
+.search-button{
+  width: 200px;
+}
+
+#spaces{
+  list-style-type: none;
+  /*height: 260px;
+  width: 350px;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  margin-top: -80px;
+  margin-left: -175px;*/
+}
+
+li{
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
 }
