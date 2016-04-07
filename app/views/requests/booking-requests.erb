@@ -3,6 +3,7 @@
   <ul>
     <% @my_requests.each do |request|%>
       <li id="<%=request.id%>">
+        Requested on: <%= request.time %>
         Space Name: <%= get_space_name(request.space_id) %>
         Start Date: <%= request.start_date %>
         End Date: <%= request.end_date %>
