@@ -25,17 +25,19 @@
       <% if @searched_dates == nil %>
         <li>
             <form action="/space/<%= space.id %>/view">
+              <button type="submit">
               Space: <%= space.name %>
               Price: <%= space.price %>
-              <input type="submit" value="view space">
+            </button>
             </form>
         </li>
       <% elsif date_match(@searched_dates, space).empty? %>
         <li>
-            <form action="/space/<%= space.id %>/view">
-              Space: <%= space.name %>
-              Price: <%= space.price %>
-              <input type="submit" value="view space">
+          <form action="/space/<%= space.id %>/view">
+            <button type="submit">
+            Space: <%= space.name %>
+            Price: <%= space.price %>
+          </button>
             </form>
         </li>
       <% end %>
