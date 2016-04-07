@@ -11,7 +11,3 @@ require_relative 'controllers/users'
 require_relative 'controllers/sessions'
 require_relative 'controllers/requests'
 require_relative 'controllers/bookings'
-
-# start the server if ruby file executed directly
-
-

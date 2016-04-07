@@ -46,4 +46,17 @@ $(document).ready(function() {
       crossDomain: true
     });
   });
+
+  $('#search').click(function(){
+    var dateRange = $('.date').pickmeup('get_date');
+    $.ajax({
+      type:    'POST',
+      url:     'http://localhost:9292/space/search',
+      data:    {"start_date": dateRange[0],
+                "end_date": dateRange[1] },
+      crossDomain: true
+    }).then(function () {
+      window.location.reload();
+    })
+  });
 });
