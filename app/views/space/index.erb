@@ -17,7 +17,7 @@
   </form>
 
   <div class="date" data-pmu-format="Y-m-d"> </div>
-  <input type="submit" value='Search' id='search' onClick="window.location.reload()">
+  <input type="submit" value='Search' id='search'>
   <form action="/space/reset-search" method="post">
     <input type="submit" value="Reset Search">
   </form>
@@ -31,7 +31,7 @@
               <input type="submit" value="view space">
             </form>
         </li>
-      <% elsif date_match(@searched_dates, space).empty?  %>
+      <% elsif date_match(@searched_dates, space).empty? %>
         <li>
             <form action="/space/<%= space.id %>/view">
               Space: <%= space.name %>

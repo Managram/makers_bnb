@@ -15,12 +15,13 @@ class MakersBnb < Sinatra::Base
   get '/space/index' do
     @spaces = Space.all
     @searched_dates = session[:searched_dates]
+		p "there"
     erb(:"space/index")
   end
 
   post '/space/search' do
     session[:searched_dates] = get_date_range(js_to_rb_date(params[:start_date]), js_to_rb_date(params[:end_date]))
-    # unavailable_dates = retrieve_bookings(Bookings.all)
+		p "here"
     redirect "/space/index"
   end
 

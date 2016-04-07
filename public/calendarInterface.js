@@ -55,6 +55,8 @@ $(document).ready(function() {
       data:    {"start_date": dateRange[0],
                 "end_date": dateRange[1] },
       crossDomain: true
-    });
+    }).then(function () {
+      window.location.reload();
+    })
   });
 });
