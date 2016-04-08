@@ -1,0 +1,55 @@
+functionalities(walkthrough)
+
+  sign up
+  list a space
+  sign out
+  sign up again
+  request booking
+  verify booking made
+  sign out
+  sign as first user
+  approve booking
+  edit space_id
+  sign out
+  sign in as second user
+  verify booking approved
+
+back end
+
+  postgresql
+  datamapper
+    what databases and how
+  sinatra
+  rspec-sinatra
+  capybara
+  pry
+
+
+front end
+
+  css
+  jquery
+  ajax
+  json
+  pickmeup
+
+
+challenges
+
+  testing
+    testing calendar buttons
+    database testing
+  calendar learning curve
+  css learning curve
+  teamwork
+  focus
+
+
+future tasks
+
+  image hosting
+  payments
+  email implementation
+  protect against edge cases
+  more tests
+  flash message if request booking with unavailable dates
