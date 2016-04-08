@@ -39,7 +39,6 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/my-spaces/:space_id' do
-    # @requests = Request.all(space_id: params[:space_id])
     @this_space = Space.first(id: params[:space_id])
     params[:space_id]
     erb(:"space/space")
