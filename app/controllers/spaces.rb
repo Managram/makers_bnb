@@ -6,9 +6,9 @@ class MakersBnb < Sinatra::Base
 
   post '/space/new' do
     user = User.get(session[:user_id])
-    user.spaces.create(name: params[:name],
+    user.spaces.create(name:        params[:name],
                        description: params[:description],
-                       price: params[:price])
+                       price:       params[:price])
     redirect "/space/index"
   end
 
@@ -43,6 +43,18 @@ class MakersBnb < Sinatra::Base
     @this_space = Space.first(id: params[:space_id])
     params[:space_id]
     erb(:"space/space")
+  end
+
+  post '/my-spaces/edit/:space_id' do
+    space = Space.first(id: params[:space_id])
+    space.update(name:        params[:name],
+                 description: params[:description],
+                 price:       params[:price])
+    space.save
+    if space.save
+      flash.next[:errors] = ["Details updated"]
+    end
+    redirect "/my-spaces/#{space.id}"
   end
 
 

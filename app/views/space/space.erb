@@ -1,7 +1,21 @@
 <h1> <%= @this_space.name %> </h1>
+<section>
+  <form action="/my-spaces/edit/<%=@this_space.id%>" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%=@this_space.name%>">
+    <label for="description">Description:</label>
+    <input type="text" name="description" value="<%=@this_space.description%>">
+    <label for="price">Price:</label>
+    <input type="number" name="price" value="<%=@this_space.price%>" min=0>
+    <button type="submit">Edit Details</button>
+  </form>
+</section>
 <h2> Bookings </h2>
 <h3> Pending </h3>
 <ul>
+  <% if @this_space.requests(status: 1).count == 0 %>
+    No pending bookings
+  <% end %>
   <% @this_space.requests(status: 1).each do |request| %>
     <li id="<%=request.id%>">
       Requested on: <%= request.time %>
@@ -21,6 +35,9 @@
 
 <h3> Confirmed </h3>
 <ul>
+  <% if @this_space.requests(status: 2).count == 0 %>
+    No confirmed bookings
+  <% end %>
   <% @this_space.requests(status: 2).each do |request| %>
     <li id="<%=request.id%>">
       Requested on: <%= request.time %>
@@ -33,6 +50,9 @@
 
 <h3> Declined </h3>
 <ul>
+  <% if @this_space.requests(status: 0).count == 0 %>
+    No declined bookings
+  <% end %>
   <% @this_space.requests(status: 0).each do |request| %>
     <li id="<%=request.id%>">
       Requested on: <%= request.time %>

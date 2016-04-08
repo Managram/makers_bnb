@@ -25,14 +25,12 @@
         <td><img src="../images/MakersBnBLogo.jpg" style="width:100px"></td>
       </tr>
     </table>
-
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    <% end %>
-
     <section class="page">
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      <% end %>
       <%= yield %>
     </section>
 
