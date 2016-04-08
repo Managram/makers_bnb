@@ -237,3 +237,32 @@ textarea {
   padding: 0 0 1px 0;
   margin-bottom: 10px;
 }
+
+/*My Space*/
+
+#my-space {
+  left: 20%;
+  float: left;
+  width: 80%;
+  margin-left: 15%;
+}
+
+/*#my-space button {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 5px;
+}*/
+
+#my-space input, textarea {
+  border-radius:6px;
+  border:groove;
+  font-size: 20px;
+  margin: 5px;
+  padding: 10px 10px 10px 10px;
+  width: 450px;
+  align-items: center;
+}
+
+#my-space form {
+  margin-left: 15px;
+}

@@ -1,64 +1,72 @@
-<h1> <%= @this_space.name %> </h1>
-<section>
+<section id="my-space">
+  <h1> <%= @this_space.name %> </h1>
   <form action="/my-spaces/edit/<%=@this_space.id%>" method="post">
-    <label for="name">Name:</label>
-    <input type="text" name="name" value="<%=@this_space.name%>">
-    <label for="description">Description:</label>
-    <input type="text" name="description" value="<%=@this_space.description%>">
-    <label for="price">Price:</label>
-    <input type="number" name="price" value="<%=@this_space.price%>" min=0>
+    <label for="name">Space Name:</label>
+    <p>
+    <input type="text" name="name" value="<%= @this_space.name %>" required>
+    <p>
+    <label for="description">Space Description:</label>
+    <p>
+    <input type="text" name="description" value="<%= @this_space.description %>" required>
+    <p>
+    <label for="price">Space Price:</label>
+    <p>
+    <input type="text" name="price" value="<%= @this_space.price %>" required>
+    <p>
     <button type="submit">Edit Details</button>
+    <p>
   </form>
+
+  <h2> Bookings </h2>
+  <h3> Pending </h3>
+  <ul>
+    <% if @this_space.requests(status: 1).count == 0 %>
+      No pending bookings
+    <% end %>
+    <% @this_space.requests(status: 1).each do |request| %>
+      <li id="<%=request.id%>">
+        Requested on: <%= request.time %>
+        Start Date: <%= request.start_date %>
+        End Date: <%= request.end_date %>
+        Requested by: <%= get_user_name(request.user_id) %>
+
+        <form action="/booking-requests/accepted/<%= request.id %>" method="post">
+          <input type="submit" value="Accept">
+        </form>
+        <form action="/booking-requests/declined/<%= request.id %>" method="post">
+          <input type="submit" value="Decline" name="Decline">
+        </form>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3> Confirmed </h3>
+  <ul>
+    <% if @this_space.requests(status: 2).count == 0 %>
+      No confirmed bookings
+    <% end %>
+    <% @this_space.requests(status: 2).each do |request| %>
+      <li id="<%=request.id%>">
+        Requested on: <%= request.time %>
+        Start Date: <%= request.start_date %>
+        End Date: <%= request.end_date %>
+        Requested by: <%= get_user_name(request.user_id) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3> Declined </h3>
+  <ul>
+    <% if @this_space.requests(status: 0).count == 0 %>
+      No declined bookings
+    <% end %>
+    <% @this_space.requests(status: 0).each do |request| %>
+      <li id="<%=request.id%>">
+        Requested on: <%= request.time %>
+        Start Date: <%= request.start_date %>
+        End Date: <%= request.end_date %>
+        Requested by: <%= get_user_name(request.user_id) %>
+      </li>
+    <% end %>
+  </ul>
 </section>
-<h2> Bookings </h2>
-<h3> Pending </h3>
-<ul>
-  <% if @this_space.requests(status: 1).count == 0 %>
-    No pending bookings
-  <% end %>
-  <% @this_space.requests(status: 1).each do |request| %>
-    <li id="<%=request.id%>">
-      Requested on: <%= request.time %>
-      Start Date: <%= request.start_date %>
-      End Date: <%= request.end_date %>
-      Requested by: <%= get_user_name(request.user_id) %>
-
-      <form action="/booking-requests/accepted/<%= request.id %>" method="post">
-        <input type="submit" value="Accept">
-      </form>
-      <form action="/booking-requests/declined/<%= request.id %>" method="post">
-        <input type="submit" value="Decline" name="Decline">
-      </form>
-    </li>
-  <% end %>
-</ul>
-
-<h3> Confirmed </h3>
-<ul>
-  <% if @this_space.requests(status: 2).count == 0 %>
-    No confirmed bookings
-  <% end %>
-  <% @this_space.requests(status: 2).each do |request| %>
-    <li id="<%=request.id%>">
-      Requested on: <%= request.time %>
-      Start Date: <%= request.start_date %>
-      End Date: <%= request.end_date %>
-      Requested by: <%= get_user_name(request.user_id) %>
-    </li>
-  <% end %>
-</ul>
-
-<h3> Declined </h3>
-<ul>
-  <% if @this_space.requests(status: 0).count == 0 %>
-    No declined bookings
-  <% end %>
-  <% @this_space.requests(status: 0).each do |request| %>
-    <li id="<%=request.id%>">
-      Requested on: <%= request.time %>
-      Start Date: <%= request.start_date %>
-      End Date: <%= request.end_date %>
-      Requested by: <%= get_user_name(request.user_id) %>
-    </li>
-  <% end %>
-</ul>
