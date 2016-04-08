@@ -5,7 +5,7 @@ def register_space(name: "new space",
     fill_in :name, with: name
     fill_in :description, with: description
     fill_in :price, with: price
-    click_button("create space")
+    click_button("List Space")
 end
 
 def register_user(name: "patrick",
