@@ -14,8 +14,9 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/my-bookings' do
-    @my_requests = Request.all(user_id: session[:user_id])
-    @received_requests = Request.all(space_id: space_ids_to_array, status: 1)
+    @pending_requests = Request.all(user_id: session[:user_id], status: 1)
+		@confirmed_requests = Request.all(user_id: session[:user_id], status: 2)
+		@declined_requests = Request.all(user_id: session[:user_id], status: 0)
     erb(:'requests/booking-requests')
   end
 

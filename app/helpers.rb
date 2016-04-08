@@ -20,15 +20,6 @@ module Helpers
     User.first(id: user_id).username
   end
 
-  def space_ids_to_array
-    spaces = Space.all(user_id: session[:user_id])
-    space_ids = []
-    spaces.each do |space|
-      space_ids.push(space.id)
-    end
-    space_ids
-  end
-
   def date_match(dates, space)
     unavailable_dates = retrieve_bookings(Booking.all(space_id: space.id))
     date_conflicts = []

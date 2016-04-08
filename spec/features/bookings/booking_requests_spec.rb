@@ -1,6 +1,4 @@
-require 'pry'
-
- feature 'booking requests' do
+feature 'booking requests' do
 
   scenario 'lists booking requests' do
     create_request
