@@ -1,6 +1,7 @@
 body {
   font-family: "Montserrat";
 }
+
 h1 {
   color: #AA1925;
   font-size: 40px;
@@ -44,7 +45,6 @@ a:hover {
   padding:0!important;
   font: inherit;
   color: #AA1925 ;
-  /*border is optional*/
   cursor: pointer;
 }
 
@@ -132,8 +132,44 @@ li {
   width: 500px;
   padding: 10px;
   margin: 3px auto;
+  list-style: none;
 }
+
+/*Calendar*/
 
 .date {
   padding-bottom: 20px;
+}
+
+/*My Spaces*/
+
+#my-spaces {
+  left: 20%;
+  float: left;
+  width: 80%;
+}
+
+#my-spaces h1 {
+  margin-left: 20%;
+}
+
+#my-spaces ul {
+  margin-left: 10%;
+}
+
+#my-spaces li {
+  width: 80%;
+  border: 1px dotted #AA1925;
+  border-radius: 6px;
+  height: 30px;
+  padding-top: 20px;
+}
+
+.bold {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.maroon {
+  color: #AA1925;
 }
