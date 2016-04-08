@@ -18,7 +18,7 @@
     <form action="/space/reset-search" method="post">
       <button class="search-button" type="submit">Reset Search</button>
     </form>
-  </section>
+  
   <ul id='spaces'>
     <% @spaces.each do |space| %>
       <% if @searched_dates == nil %>
@@ -42,4 +42,5 @@
       <% end %>
     <% end %>
   </ul>
+  </section>
 </body>
