@@ -3,10 +3,8 @@ feature 'booking requests' do
   scenario 'lists booking requests' do
     create_request
     visit '/my-bookings'
-    within 'ul' do
       expect(page).to have_content('2016-12-20')
       expect(page).to have_content('2016-04-08')
-    end
   end
 
 
