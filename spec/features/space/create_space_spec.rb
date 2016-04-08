@@ -15,6 +15,11 @@ feature 'user creating a space' do
     scenario 'cannot create space without a price' do
       expect { register_space(price: nil) }.not_to change { Space.count }
     end
+
+    scenario 'cannot create space with an pre-existing name' do
+      register_space
+      expect { register_space }.not_to change { Space.count }
+    end
   end
 
   context 'creating multiple spaces' do
