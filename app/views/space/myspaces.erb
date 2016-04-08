@@ -1,12 +1,13 @@
-<h1> My Spaces </h1>
-<ul>
-  <li id="<%=%>">
+<article id="my-spaces">
+  <h1> My Spaces </h1>
+  <ul>
     <% @spaces.each do |space| %>
-      Space Name: <a href='my-spaces/<%= space.id %>'> <%= space.name %></a>
-      Pending Requests: <%= space.requests(status: 1).count %>
-      Confirmed Requests: <%= space.requests(status: 2).count %>
-      Declined Requests: <%= space.requests(status: 0).count %>
+      <li>
+        <span class="bold">Space: </span><a href='my-spaces/<%= space.id %>'> <%= space.name %></a>
+        <span class="bold">Pending Requests: </span><span class="maroon"><%= space.requests(status: 1).count %></span>
+        <span class="bold">Confirmed Requests: </span><span class="maroon"><%= space.requests(status: 2).count %></span>
+        <span class="bold">Declined Requests: </span><span class="maroon"><%= space.requests(status: 0).count %></span>
+      </li>
     <%end%>
-  </li>
-</ul>
-
+  </ul>
+</article>

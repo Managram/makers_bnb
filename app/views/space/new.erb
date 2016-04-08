@@ -1,13 +1,30 @@
-<form action="/space/new" method="post">
-  <label for="name">Space Name:</label>
-  <input type="text" name="name" required>
-  <label for="description">Space Description:</label>
-  <input type="text" name="description" required>
-  <label for="price">Space Price:</label>
-  <input type="text" name="price" required>
-  <input type="submit" value="create space">
-</form>
+<section id="list-a-space">
+  <h1>List a Space</h1>
+  <form action="/space/new" method="post">
+    <p>
+      <label for="name">Space Name:</label>
+    <p>
+    </p>
+      <input type="text" name="name" required>
+    </p>
+    <p>
+      <label for="description">Space Description:</label>
+    </p>
+    <p>
+      <textarea type="text" name="description" required></textarea>
+    </p>
+    <p>
+      <label for="price">Space Price:</label>
+    </p>
+    <p>
+      <input type="text" name="price" required>
+    </p>
+    <p>
+      <button type="submit">List Space</button>
+    </p>
+  </form>
 
-<form action="/space/index">
-  <button type="submit">Back to Index</button>
-</form>
+  <form action="/space/index">
+    <button type="submit">Back to Index</button>
+  </form>
+</section>

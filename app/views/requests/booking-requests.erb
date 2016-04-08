@@ -1,5 +1,5 @@
-<h1>My Bookings</h1>
-<section>
+<article id="my-bookings">
+  <h1>My Bookings</h1>
   <ul>
     <% @my_requests.each do |request|%>
       <li id="<%=request.id%>">
@@ -17,8 +17,4 @@
       </li>
       <% end %>
   </ul>
-
-
-
-
-</section>
+</article>

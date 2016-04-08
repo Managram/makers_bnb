@@ -9,17 +9,18 @@
   <body>
     <table class = "nav">
       <tr>
-        <td><a href="../space/index">Spaces</a></td>
+        <td><a href="/space/index">Spaces</a></td>
         <% if current_user %>
-          <td><a href="../my-spaces">My Spaces</a></td>
+          <td><a href="/space/new">List a Space</td>
+          <td><a href="/my-spaces">My Spaces</a></td>
           <td><a href="../my-bookings">My Bookings</a></td>
           <td><form action="/sessions" method="post">
             <input type="hidden" name="_method" value="delete">
             <button class="navbar-button"type="submit">Sign out</button>
           </form></td>
         <% else %>
-          <td><a href="../user/new">Sign Up</a></td>
-          <td><a href="../sessions/new">Sign In</a></td>
+          <td><a href="/user/new">Sign Up</a></td>
+          <td><a href="/sessions/new">Sign In</a></td>
         <% end %>
         <td><img src="../images/MakersBnBLogo.jpg" style="width:100px"></td>
       </tr>
