@@ -29,3 +29,14 @@ def sign_in(email: "email@email.com",
   fill_in :password, with: password
   click_button("Sign in")
 end
+
+def create_request
+  register_user
+  register_space
+  request = Request.create(start_date: '20/12/2016',
+                           end_date:   '12/01/2017',
+                           time_stamp:  Time.now,
+                           status:      1,
+                           user_id:     User.first.id,
+                           space_id:    Space.first.id)
+end
