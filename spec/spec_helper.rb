@@ -9,7 +9,6 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'database_cleaner'
 require 'helpers'
-require 'web_helper'
 require 'factory_girl'
 require 'selenium-webdriver'
 
@@ -22,7 +21,7 @@ require 'selenium-webdriver'
 #     end
 #   end
 # end
-# 
+#
 # include Capybara::DSL
 # Capybara.default_driver = :selenium
 
@@ -32,13 +31,23 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
-  # config.include Helpers
+  config.include Helpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
-    # FactoryGirl.lint
+    FactoryGirl.lint
   end
+
+  # FactoryGirl.define do
+  #   factory :user do
+  #     name 'Rhiannon'
+  #     email 'rhiannon@gmail.com'
+  #     username 'rhiannon'
+  #     password 'abc123'
+  #     password_confirmation 'abc123'
+  #   end
+  # end
   #
   # FactoryGirl.define do
   #   factory :space do
@@ -47,7 +56,7 @@ RSpec.configure do |config|
   #     price         '19.99'
   #   end
   # end
-  #
+
   # FactoryGirl.define do
   #   factory :request do
   #     start_date '24/01/2016'

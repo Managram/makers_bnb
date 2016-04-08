@@ -1,4 +1,5 @@
 feature 'user sign up' do
+
   context 'valid user sign up' do
     scenario 'creates a new user in the database' do
       register_user
