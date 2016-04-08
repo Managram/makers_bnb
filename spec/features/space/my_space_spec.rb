@@ -5,9 +5,9 @@ feature 'my space' do
     register_space
     visit '/my-spaces'
     click_link 'new space'
-    find_field(:name).value.should eq 'new space'
-    find_field(:description).value.should eq 'anything'
-    find_field(:price).value.should eq '19.99'
+    expect(page.find_field(:name).value).to eq 'new space'
+    expect(page.find_field(:description).value).to eq 'anything'
+    expect(find_field(:price).value).to eq '19.99'
   end
 
   scenario 'edit space details' do
@@ -19,9 +19,9 @@ feature 'my space' do
     fill_in :description, with: 'updated desc'
     fill_in :price, with: 200
     click_button 'Edit Details'
-    find_field(:name).value.should eq 'new name'
-    find_field(:description).value.should eq 'updated desc'
-    find_field(:price).value.should eq '200.0'
+    expect(page.find_field(:name).value).to eq 'new name'
+    expect(page.find_field(:description).value).to eq 'updated desc'
+    expect(page.find_field(:price).value).to eq '200.0'
     expect(page).to have_content('Details updated')
   end
 
