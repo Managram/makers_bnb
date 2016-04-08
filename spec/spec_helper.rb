@@ -11,9 +11,20 @@ require 'database_cleaner'
 require 'helpers'
 require 'web_helper'
 require 'factory_girl'
+require 'selenium-webdriver'
 
-include Capybara::DSL
-Capybara.default_driver = :selenium
+# module Selenium::WebDriver::Remote
+#   class Bridge
+#     def execute(*args)
+#       res = raw_execute(*args)['value']
+#       sleep 0.1
+#       res
+#     end
+#   end
+# end
+# 
+# include Capybara::DSL
+# Capybara.default_driver = :selenium
 
 Capybara.app = MakersBnb
 

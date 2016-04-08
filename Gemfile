@@ -11,6 +11,7 @@ gem "rake"
 gem "pry"
 gem "selenium-webdriver"
 gem "sinatra-flash"
+gem "pry"
 
 group :test do
   gem "rspec"
