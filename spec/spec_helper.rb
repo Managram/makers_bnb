@@ -12,6 +12,9 @@ require 'helpers'
 require 'web_helper'
 require 'factory_girl'
 
+include Capybara::DSL
+Capybara.default_driver = :selenium
+
 Capybara.app = MakersBnb
 
 RSpec.configure do |config|
@@ -23,24 +26,25 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
-    FactoryGirl.lint
+    # FactoryGirl.lint
   end
-
-  FactoryGirl.define do
-    factory :space do
-      name          'Humpty Dumpty'
-      description   'nice wall'
-      price         '19.99'
-    end
-  end
-
-  FactoryGirl.define do
-    factory :request do
-      start_date '24/01/2016'
-      end_date   '05/04/2016'
-      status     1
-    end
-  end
+  #
+  # FactoryGirl.define do
+  #   factory :space do
+  #     name          'Humpty Dumpty'
+  #     description   'nice wall'
+  #     price         '19.99'
+  #   end
+  # end
+  #
+  # FactoryGirl.define do
+  #   factory :request do
+  #     start_date '24/01/2016'
+  #     end_date   '05/04/2016'
+  #     status     1
+  #
+  #   end
+  # end
 
   config.before :each do
     DatabaseCleaner.start
