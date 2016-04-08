@@ -21,7 +21,7 @@ module Helpers
   end
 
   def date_match(dates, space)
-    unavailable_dates = retrieve_bookings(Booking.all(space_id: space.id))
+    unavailable_dates = retrieve_bookings(Request.all(space_id: space.id, status: 2))
     date_conflicts = []
     dates.each { |date| date_conflicts << date if unavailable_dates.include?(date) }
     date_conflicts

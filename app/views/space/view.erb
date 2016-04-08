@@ -1,7 +1,7 @@
 <article id="view-space">
   <h1><%= @space.name %></h1>
   <p><%= @space.description %></p>
-  <p><%= @space.price %></p>
+  <p>£<%= @space.price %></p>
 
   <form action="/reservation/<%= @space.id %>">
     <button type="submit">Request Booking</button>
