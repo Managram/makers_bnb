@@ -8,17 +8,13 @@
 <body>
   <section class="book-a-space">
     <h1>Book a Space </h1>
-
-    <!-- <form action="/space/new">
-      <button type="submit">Create a Space</button>
-    </form> -->
     <div class="date" data-pmu-format="Y-m-d"> </div>
     <button class="search-button" type="submit" id='search'>Search</button>
     <p>
     <form action="/space/reset-search" method="post">
       <button class="search-button" type="submit">Reset Search</button>
     </form>
-  
+
   <ul id='spaces'>
     <% @spaces.each do |space| %>
       <% if @searched_dates == nil %>
