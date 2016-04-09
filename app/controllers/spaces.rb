@@ -56,5 +56,4 @@ class MakersBnb < Sinatra::Base
     redirect "/my-spaces/#{space.id}"
   end
 
-
 end
