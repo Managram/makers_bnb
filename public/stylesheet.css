@@ -12,12 +12,12 @@ h2 {
 }
 
 .center {
+  position: absolute;
+  /*float: center;*/
+  width: 80%;
+  left: 13%;
+  margin-top: 130px;
   text-align: center;
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  margin-top: -150px;
-  margin-left: -175px;
 }
 
 .top-left {
@@ -29,6 +29,7 @@ h2 {
 
 .list-dotted-border {
   width: 80%;
+  min-width: 750px;
   margin: 0 0 10px 10px;
   height: 30px;
   border: 1px dotted #AA1925;
@@ -105,22 +106,9 @@ a:hover {
   cursor: pointer;
 }
 
-/*Sign Up Page*/
+/*Sign Up & Sign In Pages*/
 
-#sign-up {
-  height: 300px;
-  width: 500px;
-  margin-left: -250px;
-}
-
-/*Sign In Page*/
-
-#sign-in {
-  height: 260px;
-  width: 350px;
-}
-
-.sign-up-elements {
+.user-form input {
   font-family: 'Montserrat';
   border-radius:6px;
   border:groove;
@@ -128,13 +116,15 @@ a:hover {
   margin: 5px;
   padding: 10px 10px 10px 10px;
   width: 250px;
-  align-items: center;
+}
+
+.user-form button {
+  margin-right: 8px;
 }
 
 /*Spaces Index*/
 
 #book-a-space {
-  left: 45%;
 }
 
 .search-button {
@@ -148,7 +138,6 @@ a:hover {
   list-style-type: none;
   position: relative;
   padding: 0;
-
   margin: 10px auto;
   text-align: center;
 }
