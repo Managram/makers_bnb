@@ -8,9 +8,12 @@ class MakersBnb < Sinatra::Base
   use Rack::MethodOverride
 
   register Sinatra::Flash
+	register Sinatra::Partial
+	set :partial_template_engine, :erb
+	enable :partial_underscores
 
   helpers Helpers
 
-	run! if app_file == $0	
+	run! if app_file == $0
 
 end
