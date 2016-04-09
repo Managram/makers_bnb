@@ -1,5 +1,6 @@
 body {
   font-family: "Montserrat";
+  min-width: 900px;
 }
 
 h1 {
@@ -72,6 +73,13 @@ button:hover {
 .nav {
   width: auto;
   float: right;
+}
+
+#welcome {
+  color: #AA1925;
+  margin-top: 40px;
+  margin-left: 20px;
+  float: left;
 }
 
 table td {
