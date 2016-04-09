@@ -1,4 +1,4 @@
-<article id="my-bookings">
+<article class="top-left" id="my-bookings">
   <h1>My Bookings</h1>
   <h2>Pending</h2>
   <ul>
@@ -6,11 +6,11 @@
       No pending bookings
     <% end %>
     <% @pending_requests.each do |request|%>
-      <li id="<%=request.id%>">
+      <li id="<%=request.id%>" class="list-dotted-border">
         Requested on: <%= request.time %>
-        Space Name: <%= get_space_name(request.space_id) %>
-        Start Date: <%= request.start_date %>
-        End Date: <%= request.end_date %>
+        Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>
+        from <span class="maroon"><%= request.start_date %></span>
+        to <span class="maroon"><%= request.end_date %></span>
       </li>
       <% end %>
   </ul>
@@ -20,11 +20,11 @@
       No confirmed bookings
     <% end %>
     <% @confirmed_requests.each do |request|%>
-      <li id="<%=request.id%>">
+      <li id="<%=request.id%>" class="list-dotted-border">
         Requested on: <%= request.time %>
-        Space Name: <%= get_space_name(request.space_id) %>
-        Start Date: <%= request.start_date %>
-        End Date: <%= request.end_date %>
+        Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>
+        from <span class="maroon"><%= request.start_date %></span>
+        to <span class="maroon"><%= request.end_date %></span>
       </li>
       <% end %>
   </ul>
@@ -34,11 +34,11 @@
       No declined bookings
     <% end %>
     <% @declined_requests.each do |request|%>
-      <li id="<%=request.id%>">
+      <li id="<%=request.id%>" class="list-dotted-border">
         Requested on: <%= request.time %>
-        Space Name: <%= get_space_name(request.space_id) %>
-        Start Date: <%= request.start_date %>
-        End Date: <%= request.end_date %>
+        Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>
+        from <span class="maroon"><%= request.start_date %></span>
+        to <span class="maroon"><%= request.end_date %></span>
       </li>
       <% end %>
   </ul>

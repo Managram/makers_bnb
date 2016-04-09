@@ -7,7 +7,12 @@
   </head>
 
   <body>
-    <table class = "nav">
+    <p id="welcome" class="inline">
+      <% if current_user %>
+        Welcome, <%= current_user.name %>
+      <% end %>
+    </p>
+    <table class = "nav" class="inline">
       <tr>
         <td><a href="/space/index">Spaces</a></td>
         <% if current_user %>
@@ -16,7 +21,7 @@
           <td><a href="../my-bookings">My Bookings</a></td>
           <td><form action="/sessions" method="post">
             <input type="hidden" name="_method" value="delete">
-            <button class="navbar-button"type="submit">Sign out</button>
+            <button class="navbar-button" type="submit">Sign out</button>
           </form></td>
         <% else %>
           <td><a href="/user/new">Sign Up</a></td>
@@ -25,7 +30,7 @@
         <td><img src="../images/MakersBnBLogo.jpg" style="width:100px"></td>
       </tr>
     </table>
-    <section class="page">
+    <section>
       <% if flash[:errors] && !flash[:errors].empty? %>
         <% flash[:errors].each do |error| %>
           <li><%= error %></li>

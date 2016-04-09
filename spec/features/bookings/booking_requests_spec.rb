@@ -1,6 +1,8 @@
 feature 'booking requests' do
 
   scenario 'lists booking requests' do
+    today = Time.parse('2016-04-08 14:58:20 +0000')
+    allow(Time).to receive(:now).and_return(today)
     create_request
     visit '/my-bookings'
     expect(page).to have_content('2016-12-20')

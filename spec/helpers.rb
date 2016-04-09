@@ -1,7 +1,7 @@
 module Helpers
   def register_space(name: "new space",
-                   description: "anything",
-                   price: 19.99)
+                     description: "anything",
+                     price: 19.99)
     visit '/space/new'
     fill_in :name, with: name
     fill_in :description, with: description

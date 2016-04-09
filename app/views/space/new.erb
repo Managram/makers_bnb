@@ -1,23 +1,23 @@
-<section id="list-a-space">
+<section id="list-a-space" class="top-left">
   <h1>List a Space</h1>
   <form action="/space/new" method="post">
     <p>
       <label for="name">Space Name:</label>
     <p>
     </p>
-      <input type="text" name="name" required>
+      <input class="space-details" type="text" name="name" required>
     </p>
     <p>
       <label for="description">Space Description:</label>
     </p>
     <p>
-      <textarea type="text" name="description" required></textarea>
+      <textarea class="space-details" type="text" name="description" required></textarea>
     </p>
     <p>
       <label for="price">Space Price:</label>
     </p>
     <p>
-      <input type="number" name="price" min=0 required>
+      <input class="space-details" type="number" name="price" min=0 required>
     </p>
     <p>
       <button type="submit">List Space</button>

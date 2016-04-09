@@ -1,5 +1,6 @@
 body {
   font-family: "Montserrat";
+  min-width: 900px;
 }
 
 h1 {
@@ -11,11 +12,74 @@ h2 {
   align-items: center;
 }
 
-/*Nav bar*/
+.center {
+  position: absolute;
+  /*float: center;*/
+  width: 80%;
+  left: 13%;
+  margin-top: 130px;
+  text-align: center;
+}
+
+.top-left {
+  left: 20%;
+  float: left;
+  width: 80%;
+  margin-left: 15%;
+}
+
+.list-dotted-border {
+  width: 80%;
+  min-width: 750px;
+  margin: 0 0 10px 10px;
+  height: 30px;
+  border: 1px dotted #AA1925;
+  border-radius: 6px;
+  padding-top: 20px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.bold {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.maroon {
+  color: #AA1925;
+}
+
+/*Buttons*/
+
+button {
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  padding: 0.75rem;
+  min-width: 5em;
+  line-height: 1.5rem;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(243,243,243,0.4);
+}
+
+/*Nav Bar*/
 
 .nav {
   width: auto;
   float: right;
+}
+
+#welcome {
+  color: #AA1925;
+  margin-top: 40px;
+  margin-left: 20px;
+  float: left;
 }
 
 table td {
@@ -42,7 +106,7 @@ a:hover {
 }
 
 .navbar-button {
- background:none!important;
+  background:none!important;
   border:2px;
   padding:0!important;
   font: inherit;
@@ -50,84 +114,38 @@ a:hover {
   cursor: pointer;
 }
 
-/*Sign Up Page*/
+/*Sign Up & Sign In Pages*/
 
-.sign-up {
- text-align: center;
- height: 300px;
- width: 500px;
- position: fixed;
- top: 30%;
- left: 50%;
- margin-top: -150px;
- margin-left: -250px;
-}
-
-/*Sign In Page*/
-
-.sign-in {
- text-align: center;
- height: 260px;
- width: 350px;
- position: fixed;
- top: 35%;
- left: 50%;
- margin-top: -130px;
- margin-left: -175px;
-}
-
-.sign-up-elements {
- font-family: 'Montserrat';
- border-radius:6px;
- border:groove;
- font-size: 20px;
- margin: 5px;
- padding: 10px 10px 10px 10px;
- width: 250px;
- align-items: center;
-}
-
-/*buttons*/
-
-button {
-  background-color: rgba(255,255,255,0.4);
-  border-radius: 8px;
+.user-form input {
   font-family: 'Montserrat';
-  padding: 0.75rem;
-  min-width: 5em;
-  line-height: 1.5rem;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 18px;
-  cursor: pointer;
+  border-radius:6px;
+  border:groove;
+  font-size: 20px;
+  margin: 5px;
+  padding: 10px 10px 10px 10px;
+  width: 250px;
 }
 
-button:hover {
-  background-color: rgba(243,243,243,0.4);
+.user-form button {
+  margin-right: 8px;
 }
 
 /*Spaces Index*/
 
-.book-a-space {
-  text-align: center;
-  position: absolute;
-  top: 30%;
-  left: 45%;
-  margin-top: -130px;
-  margin-left: -175px;
+#book-a-space {
 }
 
 .search-button {
   width: 170px;
   height: 40px;
   padding: 0 0 1px 0;
+  margin: 0 0 10px 0;
 }
 
 #spaces {
   list-style-type: none;
   position: relative;
   padding: 0;
-
   margin: 10px auto;
   text-align: center;
 }
@@ -153,20 +171,13 @@ li {
 
 /*List a Space*/
 
-#list-a-space {
-  left: 20%;
-  float: left;
-  width: 80%;
-  margin-left: 15%;
-}
-
 #list-a-space button {
   position: relative;
   margin-top: 10px;
   margin-left: 5px;
 }
 
-#list-a-space input, textarea {
+.space-details {
   border-radius:6px;
   border:groove;
   font-size: 20px;
@@ -181,53 +192,46 @@ li {
 }
 
 textarea {
-  height: 150px;
+  height: 130px;
 }
 
-/*My Spaces*/
+/*Each Space Page*/
 
-#my-spaces {
-  left: 20%;
-  float: left;
-  width: 80%;
-}
-
-#my-spaces h1 {
-  margin-left: 20%;
-}
-
-#my-spaces ul {
-  margin-left: 10%;
-}
-
-#my-spaces li {
-  width: 80%;
-  border: 1px dotted #AA1925;
-  border-radius: 6px;
-  height: 30px;
-  padding-top: 20px;
-}
-
-.bold {
-  font-weight: bold;
+#each-space h2 {
   margin-left: 10px;
 }
 
-.maroon {
-  color: #AA1925;
+#each-space h3 {
+  margin-left: 20px;
+}
+
+#each-space form {
+  margin-left: 20px;
+}
+
+.acc-or-dec {
+  width: 90px;
+  height: 30px;
+  font-size: 15px;
+  padding: 0 0 0 0;
+  margin-right: -15px;
+}
+
+.inline {
+  display: inline;
+}
+
+#edit {
+  margin-top: 60px;
 }
 
 /*View Space*/
 
 #view-space {
-  left: 20%;
-  float: left;
-  width: 80%;
-  margin-left: 15%;
   margin-top: 5%;
 }
 
-#view-space p, form {
+#view-space p, #view-space form {
   margin-left: 10px;
 }
 
@@ -238,31 +242,8 @@ textarea {
   margin-bottom: 10px;
 }
 
-/*My Space*/
+/*My Bookings*/
 
-#my-space {
-  left: 20%;
-  float: left;
-  width: 80%;
-  margin-left: 15%;
-}
-
-/*#my-space button {
-  position: relative;
-  margin-top: 10px;
-  margin-left: 5px;
-}*/
-
-#my-space input, textarea {
-  border-radius:6px;
-  border:groove;
-  font-size: 20px;
-  margin: 5px;
-  padding: 10px 10px 10px 10px;
-  width: 450px;
-  align-items: center;
-}
-
-#my-space form {
-  margin-left: 15px;
+#my-bookings h2 {
+  margin-left: 10px;
 }

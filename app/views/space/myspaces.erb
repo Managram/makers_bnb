@@ -1,8 +1,8 @@
-<article id="my-spaces">
+<article id="my-spaces" class="top-left">
   <h1> My Spaces </h1>
   <ul>
     <% @spaces.each do |space| %>
-      <li>
+      <li class="list-dotted-border">
         <span class="bold">Space: </span><a href='my-spaces/<%= space.id %>'> <%= space.name %></a>
         <span class="bold">Pending Requests: </span><span class="maroon"><%= space.requests(status: 1).count %></span>
         <span class="bold">Confirmed Requests: </span><span class="maroon"><%= space.requests(status: 2).count %></span>
