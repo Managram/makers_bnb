@@ -2,13 +2,13 @@ feature 'displays all spaces' do
 
   before(:each) do
     user = User.create(name: 'Rhiannon',
-                     email: 'rhiannon@gmail.com',
-                     username: 'rhiannon',
-                     password: 'abc123',
-                     password_confirmation: 'abc123')
+                       email: 'rhiannon@gmail.com',
+                       username: 'rhiannon',
+                       password: 'abc123',
+                       password_confirmation: 'abc123')
     @space = Space.new(name: 'House',
-                      description: 'Haunted',
-                      price: 20.00)
+                       description: 'Haunted',
+                       price: 20.00)
     @space.user = user
     @space.save
   end
