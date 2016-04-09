@@ -9,34 +9,33 @@
   <section class="book-a-space">
     <h1>Book a Space </h1>
     <div class="date" data-pmu-format="Y-m-d"> </div>
-    <button class="search-button" type="submit" id='search'>Search</button>
-    <p>
+    <button id="search" class="search-button" type="submit">Search</button>
     <form action="/space/reset-search" method="post">
       <button class="search-button" type="submit">Reset Search</button>
     </form>
 
-  <ul id='spaces'>
-    <% @spaces.each do |space| %>
-      <% if @searched_dates == nil %>
-        <li>
+    <ul id="spaces">
+      <% @spaces.each do |space| %>
+        <% if @searched_dates == nil %>
+          <li>
             <form action="/space/<%= space.id %>/view">
               <button type="submit">
-              Space: <%= space.name %>
-              Price: £<%= space.price %>
-            </button>
+                Space: <%= space.name %>
+                £<%= space.price %>
+              </button>
             </form>
-        </li>
-      <% elsif date_match(@searched_dates, space).empty? %>
-        <li>
-          <form action="/space/<%= space.id %>/view">
-            <button type="submit">
-            Space: <%= space.name %>
-            Price: £<%= space.price %>
-          </button>
+          </li>
+        <% elsif date_match(@searched_dates, space).empty? %>
+          <li>
+            <form action="/space/<%= space.id %>/view">
+              <button type="submit">
+                Space: <%= space.name %>
+                £<%= space.price %>
+              </button>
             </form>
-        </li>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
   </section>
 </body>
