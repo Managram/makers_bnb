@@ -17,7 +17,7 @@ h2 {
   top: 30%;
   left: 50%;
   margin-top: -150px;
-  margin-left: -250px;
+  margin-left: -175px;
 }
 
 .top-left {
@@ -80,6 +80,7 @@ a:hover {
 #sign-up {
   height: 300px;
   width: 500px;
+  margin-left: -250px;
 }
 
 /*Sign In Page*/
@@ -87,7 +88,6 @@ a:hover {
 #sign-in {
   height: 260px;
   width: 350px;
-  margin-left: -175px;
 }
 
 .sign-up-elements {
@@ -122,13 +122,8 @@ button:hover {
 
 /*Spaces Index*/
 
-.book-a-space {
-  text-align: center;
-  position: absolute;
-  top: 30%;
+#book-a-space {
   left: 45%;
-  margin-top: -130px;
-  margin-left: -175px;
 }
 
 .search-button {
@@ -167,13 +162,6 @@ li {
 }
 
 /*List a Space*/
-
-#list-a-space {
-  left: 20%;
-  float: left;
-  width: 80%;
-  margin-left: 15%;
-}
 
 #list-a-space button {
   position: relative;
