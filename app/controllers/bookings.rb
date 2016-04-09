@@ -10,6 +10,10 @@ class MakersBnb < Sinatra::Base
     request = Request.first(id: params[:request_id])
     request.status = 2
     request.save
+    confirmed_dates = get_date_range(request.start_date, 
+                                     request.end_date)
+    space = Space.first(id: request.space_id)
+    decline_requests(confirmed_dates, space)
     redirect "/my-spaces/#{request.space_id}"
   end
 
