@@ -20,10 +20,14 @@ module Helpers
     User.first(id: user_id).username
   end
 
-  def date_match(dates, space)
+def date_match(dates, space)
     unavailable_dates = retrieve_bookings(Request.all(space_id: space.id, status: 2))
+    date_conflicts(dates, unavailable_dates)
+  end
+
+  def date_conflicts(dates, requested_dates)
     date_conflicts = []
-    dates.each { |date| date_conflicts << date if unavailable_dates.include?(date) }
+    dates.each { |date| date_conflicts << date if requested_dates.include?(date) }
     date_conflicts
   end
 
@@ -32,12 +36,10 @@ module Helpers
   end
 
   def decline_requests(dates, space)
-    requests = Request.all(space_id: space.id, status: 1)  
-    date_conflicts = []
-    requests.each do | request |
+    requests = Request.all(space_id: space.id, status: 1)      
+    requests.each do | request |      
       requested_dates = get_date_range(request.start_date, request.end_date)
-      dates.each { |date| date_conflicts << date if requested_dates.include?(date) }
-      if !date_conflicts.empty?
+      if !date_conflicts(dates, requested_dates).empty?
         request.status = 0
         request.save
       end
