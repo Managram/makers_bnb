@@ -1,6 +1,6 @@
 module Helpers
 
-	def retrieve_bookings(bookings)
+  def retrieve_bookings(bookings)
     bookings.map { |booking| get_date_range(booking.start_date, booking.end_date) }.flatten
   end
 
@@ -20,7 +20,7 @@ module Helpers
     User.first(id: user_id).username
   end
 
-def date_match(dates, space)
+  def date_match(dates, space)
     unavailable_dates = retrieve_bookings(Request.all(space_id: space.id, status: 2))
     date_conflicts(dates, unavailable_dates)
   end
