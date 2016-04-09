@@ -18,7 +18,7 @@ feature 'my space' do
     fill_in :name, with: 'new name'
     fill_in :description, with: 'updated desc'
     fill_in :price, with: 200
-    click_button 'Edit Details'
+    click_button 'Update'
     expect(page.find_field(:name).value).to eq 'new name'
     expect(page.find_field(:description).value).to eq 'updated desc'
     expect(page.find_field(:price).value).to eq '200.0'
