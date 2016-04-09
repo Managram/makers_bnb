@@ -36,6 +36,17 @@ h2 {
   color: #AA1925;
 }
 
+.list-dotted-border {
+  width: 80%;
+  margin: 0 0 10px 10px;
+  height: 30px;
+  border: 1px dotted #AA1925;
+  border-radius: 6px;
+  padding-top: 20px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
 /*Nav Bar*/
 
 .nav {
@@ -187,19 +198,6 @@ textarea {
   height: 150px;
 }
 
-/*My Spaces*/
-
-#my-spaces li {
-  width: 80%;
-  margin: 0 0 10px 10px;
-  height: 30px;
-  border: 1px dotted #AA1925;
-  border-radius: 6px;
-  padding-top: 20px;
-  overflow-x: scroll;
-  white-space: nowrap;
-}
-
 /*Each Space Page*/
 
 #my-space input, textarea {
@@ -233,4 +231,8 @@ textarea {
   margin-bottom: 10px;
 }
 
-/*Request a Booking*/
+/*My Bookings*/
+
+#my-bookings h2 {
+  margin-left: 10px;
+}
