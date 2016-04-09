@@ -27,15 +27,6 @@ h2 {
   margin-left: 15%;
 }
 
-.bold {
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.maroon {
-  color: #AA1925;
-}
-
 .list-dotted-border {
   width: 80%;
   margin: 0 0 10px 10px;
@@ -45,6 +36,34 @@ h2 {
   padding-top: 20px;
   overflow-x: scroll;
   white-space: nowrap;
+}
+
+.bold {
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.maroon {
+  color: #AA1925;
+}
+
+/*Buttons*/
+
+button {
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  padding: 0.75rem;
+  min-width: 5em;
+  line-height: 1.5rem;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(243,243,243,0.4);
 }
 
 /*Nav Bar*/
@@ -112,25 +131,6 @@ a:hover {
   align-items: center;
 }
 
-/*Buttons*/
-
-button {
-  background-color: rgba(255,255,255,0.4);
-  border-radius: 8px;
-  font-family: 'Montserrat';
-  padding: 0.75rem;
-  min-width: 5em;
-  line-height: 1.5rem;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: rgba(243,243,243,0.4);
-}
-
 /*Spaces Index*/
 
 #book-a-space {
@@ -180,7 +180,7 @@ li {
   margin-left: 5px;
 }
 
-#list-a-space input, textarea {
+.space-details {
   border-radius:6px;
   border:groove;
   font-size: 20px;
@@ -195,23 +195,37 @@ li {
 }
 
 textarea {
-  height: 150px;
+  height: 130px;
 }
 
 /*Each Space Page*/
 
-#my-space input, textarea {
-  border-radius:6px;
-  border:groove;
-  font-size: 20px;
-  margin: 5px;
-  padding: 10px 10px 10px 10px;
-  width: 450px;
-  align-items: center;
+#each-space h2 {
+  margin-left: 10px;
 }
 
-#my-space form {
-  margin-left: 15px;
+#each-space h3 {
+  margin-left: 20px;
+}
+
+#each-space form {
+  margin-left: 20px;
+}
+
+.acc-or-dec {
+  width: 90px;
+  height: 30px;
+  font-size: 15px;
+  padding: 0 0 0 0;
+  margin-right: -15px;
+}
+
+.inline {
+  display: inline;
+}
+
+#edit {
+  margin-top: 60px;
 }
 
 /*View Space*/
