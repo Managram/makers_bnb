@@ -31,4 +31,17 @@ module Helpers
     Date.parse(date)
   end
 
+  def decline_requests(dates, space)
+    requests = Request.all(space_id: space.id, status: 1)  
+    date_conflicts = []
+    requests.each do | request |
+      requested_dates = get_date_range(request.start_date, request.end_date)
+      dates.each { |date| date_conflicts << date if requested_dates.include?(date) }
+      if !date_conflicts.empty?
+        request.status = 0
+        request.save
+      end
+    end
+  end
+
 end

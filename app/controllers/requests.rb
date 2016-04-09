@@ -6,8 +6,9 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/reservation' do
-    searched_dates = get_date_range(js_to_rb_date(params[:start_date]),																		js_to_rb_date(params[:end_date]))
-    space = Space.first(space_id: params[:space_id])
+    searched_dates = get_date_range(js_to_rb_date(params[:start_date]),	
+                                    js_to_rb_date(params[:end_date]))
+    space = Space.first(id: params[:space_id])
       if date_match(searched_dates, space).empty?
         Request.create(start_date: params[:start_date],
                    	end_date: params[:end_date],
