@@ -1,45 +1,29 @@
 <article class="top-left" id="my-bookings">
+
   <h1>My Bookings</h1>
+
   <h2>Pending</h2>
   <ul>
     <% if @pending_requests.count == 0 %>
       No pending bookings
     <% end %>
-    <% @pending_requests.each do |request|%>
-      <li id="<%=request.id%>" class="list-dotted-border">
-        Requested on: <%= request.time %>
-        Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>
-        from <span class="maroon"><%= request.start_date %></span>
-        to <span class="maroon"><%= request.end_date %></span>
-      </li>
-      <% end %>
+    <%= partial :request, locals: { requests: @pending_requests } %>
   </ul>
+
   <h2>Confirmed</h2>
   <ul>
     <% if @confirmed_requests.count == 0 %>
       No confirmed bookings
     <% end %>
-    <% @confirmed_requests.each do |request|%>
-      <li id="<%=request.id%>" class="list-dotted-border">
-        Requested on: <%= request.time %>
-        Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>
-        from <span class="maroon"><%= request.start_date %></span>
-        to <span class="maroon"><%= request.end_date %></span>
-      </li>
-      <% end %>
+    <%= partial :request, locals: { requests: @confirmed_requests } %>
   </ul>
+
   <h2>Declined</h2>
   <ul>
     <% if @declined_requests.count == 0 %>
       No declined bookings
     <% end %>
-    <% @declined_requests.each do |request|%>
-      <li id="<%=request.id%>" class="list-dotted-border">
-        Requested on: <%= request.time %>
-        Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>
-        from <span class="maroon"><%= request.start_date %></span>
-        to <span class="maroon"><%= request.end_date %></span>
-      </li>
-      <% end %>
+    <%= partial :request, locals: { requests: @declined_requests } %>
   </ul>
+  
 </article>

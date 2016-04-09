@@ -51,7 +51,7 @@ class MakersBnb < Sinatra::Base
                  price:       params[:price])
     space.save
     if space.save
-      flash.next[:errors] = ["Details updated"]
+      flash.next[:notice] = ["Details updated"]
     end
     redirect "/my-spaces/#{space.id}"
   end

@@ -24,7 +24,7 @@
       <button type="submit">Sign up</button>
     </p>
   </form>
-  
-  <%= partial :flash %>
+
+  <%= partial :flash, locals: { flashes: flash[:errors] } %>
 
 </section>

@@ -1,5 +1,7 @@
 <article class="top-left" id="each-space">
   <h1> <%= @this_space.name %> </h1>
+  <%= partial :flash, locals: { flashes: flash[:notice] } %>
+
   <h2> Bookings </h2>
   <h3> Pending </h3>
   <ul>

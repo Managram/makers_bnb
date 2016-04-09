@@ -1,7 +1,7 @@
 <p>
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
+  <% if flashes && !flashes.empty? %>
+    <% flashes.each do |flash| %>
+      <li class="maroon"><%= flash %></li>
     <% end %>
   <% end %>
 </p>
