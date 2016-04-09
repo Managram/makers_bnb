@@ -1,4 +1,4 @@
-<% requests.each do |request|%>
+<% requests.each do |request| %>
   <li id="<%=request.id%>" class="list-dotted-border">
     Requested on: <%= request.time %>
     Space: <span class="maroon"><%= get_space_name(request.space_id) %></span>

@@ -11,11 +11,11 @@
     <% @this_space.requests(status: 1).each do |request| %>
       <li id="<%=request.id%>" class="list-dotted-border">
         <div class="inline">
-        From <span class="maroon"><%= request.start_date %></span>
-        to <span class="maroon"><%= request.end_date %></span>
-        Requested on <%= request.time %>
-        by <%= get_user_name(request.user_id) %>
-      </div>
+          From <span class="maroon"><%= request.start_date %></span>
+          to <span class="maroon"><%= request.end_date %></span>
+          Requested on <%= request.time %>
+          by <%= get_user_name(request.user_id) %>
+        </div>
 
         <form action="/booking-requests/accepted/<%= request.id %>" method="post" class="inline">
           <button type="submit" class="acc-or-dec">Accept</button>
@@ -32,14 +32,7 @@
     <% if @this_space.requests(status: 2).count == 0 %>
       No confirmed bookings
     <% end %>
-    <% @this_space.requests(status: 2).each do |request| %>
-      <li id="<%=request.id%>" class="list-dotted-border">
-        From <span class="maroon"><%= request.start_date %></span>
-        to <span class="maroon"><%= request.end_date %></span>
-        Requested on <%= request.time %>
-        by <%= get_user_name(request.user_id) %>
-      </li>
-    <% end %>
+    <%= partial :space, locals: { requests: @this_space.requests(status: 2) } %>
   </ul>
 
   <h3> Declined </h3>
@@ -47,14 +40,7 @@
     <% if @this_space.requests(status: 0).count == 0 %>
       No declined bookings
     <% end %>
-    <% @this_space.requests(status: 0).each do |request| %>
-      <li id="<%=request.id%>" class="list-dotted-border">
-        From <span class="maroon"><%= request.start_date %></span>
-        to <span class="maroon"><%= request.end_date %></span>
-        Requested on <%= request.time %>
-        by <%= get_user_name(request.user_id) %>
-      </li>
-    <% end %>
+    <%= partial :space, locals: { requests: @this_space.requests(status: 0) } %>
   </ul>
 
   <h2 id="edit">Edit space details</h2>

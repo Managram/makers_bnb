@@ -1,0 +1,8 @@
+<% requests.each do |request| %>
+  <li id="<%=request.id%>" class="list-dotted-border">
+    From <span class="maroon"><%= request.start_date %></span>
+    to <span class="maroon"><%= request.end_date %></span>
+    Requested on <%= request.time %>
+    by <%= get_user_name(request.user_id) %>
+  </li>
+<% end %>
