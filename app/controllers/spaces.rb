@@ -1,6 +1,7 @@
 class MakersBnb < Sinatra::Base
 
   get '/space/new' do
+    @this_space = Space.new
     erb(:"space/new")
   end
 
