@@ -1,0 +1,18 @@
+<p>
+  <label for="name">Space Name:</label>
+</p>
+<p>
+  <input class="space-details" type="text" name="name" value="<%= @this_space.name %>" required>
+</p>
+<p>
+  <label for="description">Space Description:</label>
+</p>
+<p>
+  <textarea class="space-details" type="text" name="description" required><%= @this_space.description %></textarea>
+</p>
+<p>
+  <label for="price">Space Price:</label>
+</p>
+<p>
+  <input class="space-details" type="text" name="price" value="<%= @this_space.price %>" min=0 required>
+</p>

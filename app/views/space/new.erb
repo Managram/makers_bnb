@@ -1,24 +1,7 @@
 <section id="list-a-space" class="top-left">
   <h1>List a Space</h1>
   <form action="/space/new" method="post">
-    <p>
-      <label for="name">Space Name:</label>
-    <p>
-    </p>
-      <input class="space-details" type="text" name="name" required>
-    </p>
-    <p>
-      <label for="description">Space Description:</label>
-    </p>
-    <p>
-      <textarea class="space-details" type="text" name="description" required></textarea>
-    </p>
-    <p>
-      <label for="price">Space Price:</label>
-    </p>
-    <p>
-      <input class="space-details" type="number" name="price" min=0 required>
-    </p>
+    <%= partial :description %>
     <p>
       <button type="submit">List Space</button>
     </p>

@@ -7,11 +7,7 @@
   </head>
 
   <body>
-    <p id="welcome" class="inline">
-      <% if current_user %>
-        Welcome, <%= current_user.name %>
-      <% end %>
-    </p>
+    <%= partial :welcome %>
     <table class = "nav" class="inline">
       <tr>
         <td><a href="/space/index">Spaces</a></td>
@@ -30,15 +26,7 @@
         <td><img src="../images/MakersBnBLogo.jpg" style="width:100px"></td>
       </tr>
     </table>
-    <section>
-      <% if flash[:errors] && !flash[:errors].empty? %>
-        <% flash[:errors].each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      <% end %>
-      <%= yield %>
-    </section>
-
+    <%= yield %>
   </body>
 
 </html>

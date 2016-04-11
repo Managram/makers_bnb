@@ -16,16 +16,7 @@
 
     <ul id="spaces">
       <% @spaces.each do |space| %>
-        <% if @searched_dates == nil %>
-          <li>
-            <form action="/space/<%= space.id %>/view">
-              <button type="submit">
-                Space: <%= space.name %>
-                £<%= space.price %>
-              </button>
-            </form>
-          </li>
-        <% elsif date_match(@searched_dates, space).empty? %>
+        <% if @searched_dates == nil || date_match(@searched_dates, space).empty? %>
           <li>
             <form action="/space/<%= space.id %>/view">
               <button type="submit">

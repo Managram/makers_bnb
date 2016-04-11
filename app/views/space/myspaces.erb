@@ -3,7 +3,7 @@
   <ul>
     <% @spaces.each do |space| %>
       <li class="list-dotted-border">
-        <span class="bold">Space: </span><a href='my-spaces/<%= space.id %>'> <%= space.name %></a>
+        <span class="bold">Space: </span><a href='my-spaces/<%= space.id %>'><%= space.name %></a>
         <span class="bold">Pending Requests: </span><span class="maroon"><%= space.requests(status: 1).count %></span>
         <span class="bold">Confirmed Requests: </span><span class="maroon"><%= space.requests(status: 2).count %></span>
         <span class="bold">Declined Requests: </span><span class="maroon"><%= space.requests(status: 0).count %></span>
