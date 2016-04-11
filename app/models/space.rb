@@ -4,7 +4,7 @@ class Space
 
   property :id,          Serial
   property :name,        String, required: true, unique: true
-  property :description, String, required: true
+  property :description, Text, required: true
   property :price,       Float,  required: true, scale: 2
 
   belongs_to :user
